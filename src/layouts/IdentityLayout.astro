@@ -1,0 +1,20 @@
+---
+const { celebration } = Astro.props;
+const themes = {
+  birthday: { bg: 'bg-yellow-50', text: 'text-yellow-900', accent: 'bg-yellow-400', gradient: 'from-yellow-200 to-yellow-100' },
+  anniversary: { bg: 'bg-rose-50', text: 'text-rose-900', accent: 'bg-rose-500', gradient: 'from-rose-200 to-rose-100' },
+  congratulations: { bg: 'bg-sky-50', text: 'text-sky-900', accent: 'bg-sky-500', gradient: 'from-sky-200 to-sky-100' },
+};
+const theme = themes[celebration];
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{celebration} | Celebration In A Box</title>
+	</head>
+	<body class={`${theme.bg} ${theme.text} transition-colors duration-1000 overflow-x-hidden`}>
+		<slot />
+	</body>
+</html>
