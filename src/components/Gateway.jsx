@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '../config';
 
 const CELEBRATIONS = [
@@ -11,12 +11,6 @@ const CELEBRATIONS = [
 
 export default function Gateway() {
   const [hovered, setHovered] = useState(null);
-
-  const navigateToCelebration = (id) => {
-    const base = SITE_CONFIG.basePath;
-    const path = base ? `${base}/${id}/` : `/${id}/`;
-    window.location.assign(path);
-  };
 
   return (
     <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -32,33 +26,39 @@ export default function Gateway() {
       </motion.div>
 
       <div className="flex flex-col gap-6 items-center">
-        {CELEBRATIONS.map((item) => (
-          <motion.button
-            key={item.id}
-            onMouseEnter={() => setHovered(item.id)}
-            onMouseLeave={() => setHovered(null)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => navigateToCelebration(item.id)}
-            className="group relative px-12 py-6 text-2xl font-light border border-zinc-200 rounded-full transition-all duration-500 hover:border-zinc-900 flex items-center gap-6 overflow-hidden"
-          >
-            <span className="relative z-10">{item.label}</span>
-            <ArrowRight
-              className={`relative z-10 transition-all duration-500 ${hovered === item.id ? 'translate-x-2 opacity-100' : 'opacity-0'}`}
-            />
+        {CELEBRATIONS.map((item) => {
+          const path = SITE_CONFIG.basePath
+            ? `${SITE_CONFIG.basePath}/${item.id}/`
+            : `/${item.id}/`;
 
-            {hovered === item.id && (
-              <motion.div
-                layoutId="glow"
-                className="absolute inset-0 blur-3xl opacity-30"
-                style={{ backgroundColor: item.color }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.3 }}
-                transition={{ duration: 0.5 }}
+          return (
+            <motion.a
+              key={item.id}
+              href={path}
+              onMouseEnter={() => setHovered(item.id)}
+              onMouseLeave={() => setHovered(null)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative px-12 py-6 text-2xl font-light border border-zinc-200 rounded-full transition-all duration-500 hover:border-zinc-900 flex items-center gap-6 overflow-hidden cursor-pointer"
+            >
+              <span className="relative z-10">{item.label}</span>
+              <ArrowRight
+                className={`relative z-10 transition-all duration-500 ${hovered === item.id ? 'translate-x-2 opacity-100' : 'opacity-0'}`}
               />
-            )}
-          </motion.button>
-        ))}
+
+              {hovered === item.id && (
+                <motion.div
+                  layoutId="glow"
+                  className="absolute inset-0 blur-3xl opacity-30"
+                  style={{ backgroundColor: item.color }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.3 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
+            </motion.a>
+          );
+        })}
       </div>
 
       <motion.div
