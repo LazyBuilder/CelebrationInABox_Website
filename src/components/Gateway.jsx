@@ -29,7 +29,7 @@ export default function Gateway() {
         {CELEBRATIONS.map((item) => {
           const path = SITE_CONFIG.basePath
             ? `${SITE_CONFIG.basePath}/${item.id}/`
-            : `/${item.id}/`;
+            : `${item.id}/`;
 
           return (
             <motion.a
