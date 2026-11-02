@@ -4,6 +4,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://your-username.github.io',
-  base: './',
+  base: '/celebration-in-a-box',
   integrations: [react(), tailwind()],
 });
