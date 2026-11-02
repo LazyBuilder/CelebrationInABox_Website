@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { SITE_CONFIG } from '../config';
 
 const CELEBRATIONS = [
   { id: 'birthday', label: 'A Birthday', color: '#FFD700', mood: 'Energetic' },
@@ -10,6 +11,12 @@ const CELEBRATIONS = [
 
 export default function Gateway() {
   const [hovered, setHovered] = useState(null);
+
+  const navigateToCelebration = (id) => {
+    const base = SITE_CONFIG.basePath;
+    const path = base ? `${base}/${id}/` : `/${id}/`;
+    window.location.assign(path);
+  };
 
   return (
     <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -32,7 +39,7 @@ export default function Gateway() {
             onMouseLeave={() => setHovered(null)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-                          onClick={() => window.location.href = `/celebration-in-a-box/${item.id}`}
+            onClick={() => navigateToCelebration(item.id)}
             className="group relative px-12 py-6 text-2xl font-light border border-zinc-200 rounded-full transition-all duration-500 hover:border-zinc-900 flex items-center gap-6 overflow-hidden"
           >
             <span className="relative z-10">{item.label}</span>
