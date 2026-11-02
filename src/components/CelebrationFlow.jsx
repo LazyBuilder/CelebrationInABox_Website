@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Package, Eye, Heart } from 'lucide-react';
+import { CheckCircle2, Package, Eye, Heart, Sparkles } from 'lucide-react';
 
 const STEPS = [
   {
