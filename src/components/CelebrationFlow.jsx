@@ -2,33 +2,114 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Package, Eye, Heart, Sparkles } from 'lucide-react';
 
-const STEPS = [
-  {
-    id: 'mood',
-    question: 'How should it feel?',
-    options: [
-      { label: 'Intimate & Quiet', value: 'intimate', icon: <Heart className="w-5 h-5" /> },
-      { label: 'Loud & Energetic', value: 'energetic', icon: <Sparkles className="w-5 h-5" /> },
+const CELEBRATION_CONFIGS = {
+  birthday: {
+    steps: [
+      {
+        id: 'mood',
+        question: 'What is the birthday vibe?',
+        options: [
+          { label: 'Intimate & Quiet', value: 'intimate', icon: <Heart className="w-5 h-5" /> },
+          { label: 'Loud & Energetic', value: 'energetic', icon: <Sparkles className="w-5 h-5" /> },
+        ],
+      },
+      {
+        id: 'scale',
+        question: 'Who is joining the magic?',
+        options: [
+          { label: 'Just us two', value: 'small', icon: <Heart className="w-5 h-5" /> },
+          { label: 'The whole crew', value: 'large', icon: <Sparkles className="w-5 h-5" /> },
+        ],
+      },
+      {
+        id: 'detail',
+        question: 'What is the highlight?',
+        options: [
+          { label: 'The Cake & Decor', value: 'decor', icon: <Package className="w-5 h-5" /> },
+          { label: 'The Experience', value: 'experience', icon: <Eye className="w-5 h-5" /> },
+        ],
+      },
     ],
   },
-  {
-    id: 'scale',
-    question: 'Who is joining the magic?',
-    options: [
-      { label: 'Just us two', value: 'small', icon: <Heart className="w-5 h-5" /> },
-      { label: 'The whole crew', value: 'large', icon: <Sparkles className="w-5 h-5" /> },
+  anniversary: {
+    steps: [
+      {
+        id: 'mood',
+        question: 'How should the romance feel?',
+        options: [
+          { label: 'Deeply Intimate', value: 'intimate', icon: <Heart className="w-5 h-5" /> },
+          { label: 'Celebratory & Grand', value: 'grand', icon: <Sparkles className="w-5 h-5" /> },
+        ],
+      },
+      {
+        id: 'scale',
+        question: 'Who is being celebrated?',
+        options: [
+          { label: 'The Couple Only', value: 'small', icon: <Heart className="w-5 h-5" /> },
+          { label: 'Family & Close Friends', value: 'large', icon: <Sparkles className="w-5 h-5" /> },
+        ],
+      },
+      {
+        id: 'detail',
+        question: 'The primary focus?',
+        options: [
+          { label: 'Timeless Elegance', value: 'elegant', icon: <Heart className="w-5 h-5" /> },
+          { label: 'Modern Surprise', value: 'modern', icon: <Eye className="w-5 h-5" /> },
+        ],
+      },
     ],
-  }
-];
+  },
+  congratulations: {
+    steps: [
+      {
+        id: 'mood',
+        question: 'What is the energy?',
+        options: [
+          { label: 'Sophisticated', value: 'sophisticated', icon: <Heart className="w-5 h-5" /> },
+          { label: 'Over-the-top', value: 'extravagant', icon: <Sparkles className="w-5 h-5" /> },
+        ],
+      },
+      {
+        id: 'scale',
+        question: 'How big is the win?',
+        options: [
+          { label: 'Private Celebration', value: 'small', icon: <Heart className="w-5 h-5" /> },
+          { label: 'Open House Party', value: 'large', icon: <Sparkles className="w-5 h-5" /> },
+        ],
+      },
+      {
+        id: 'detail',
+        question: 'What defines the win?',
+        options: [
+          { label: 'Professional Success', value: 'career', icon: <Package className="w-5 h-5" /> },
+          { label: 'Personal Milestone', value: 'life', icon: <Eye className="w-5 h-5" /> },
+        ],
+      },
+    ],
+  },
+};
+
+const OUTCOME_MAP = {
+  intimate: 'a serene and candle-lit sanctuary',
+  energetic: 'a vibrant explosion of color and joy',
+  grand: 'a breathtaking display of luxury',
+  sophisticated: 'a curated space of understated elegance',
+  extravagant: 'a maximalist celebration of success',
+  small: 'perfectly tailored for a few',
+  large: 'designed to impress a crowd',
+};
 
 export default function CelebrationFlow({ type }) {
   const [step, setStep] = useState(0);
   const [selections, setSelections] = useState({});
   const [isRevealed, setIsRevealed] = useState(false);
 
+  const config = CELEBRATION_CONFIGS[type] || CELEBRATION_CONFIGS.birthday;
+  const steps = config.steps;
+
   const handleSelect = (value) => {
-    setSelections({ ...selections, [STEPS[step].id]: value });
-    if (step < STEPS.length - 1) {
+    setSelections({ ...selections, [steps[step].id]: value });
+    if (step < steps.length - 1) {
       setStep(step + 1);
     } else {
       setIsRevealed(true);
@@ -40,7 +121,15 @@ export default function CelebrationFlow({ type }) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6 relative">
+      <div className="absolute top-8 left-8">
+        <a href="/celebration-in-a-box/" className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
+          ← Back to Start
+        </a>
+      </div>
+      <div className="absolute top-12 right-8 text-sm font-light opacity-30">
+        Step {step + 1} of {steps.length}
+      </div>
       <AnimatePresence mode="wait">
         <motion.div
           key={step}
@@ -50,9 +139,9 @@ export default function CelebrationFlow({ type }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl w-full text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-light mb-12">{STEPS[step].question}</h2>
+          <h2 className="text-4xl md:text-6xl font-light mb-12">{steps[step].question}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {STEPS[step].options.map((opt) => (
+            {steps[step].options.map((opt) => (
               <motion.button
                 key={opt.value}
                 whileHover={{ scale: 1.02 }}
@@ -74,8 +163,18 @@ export default function CelebrationFlow({ type }) {
 function OutcomeReveal({ type, selections }) {
   const [showBox, setShowBox] = useState(false);
 
+  const moodValue = selections.mood;
+  const scaleValue = selections.scale;
+  const moodDesc = OUTCOME_MAP[moodValue] || 'a uniquely curated atmosphere';
+  const scaleDesc = OUTCOME_MAP[scaleValue] || 'tailored to your needs';
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center relative">
+      <div className="absolute top-8 left-8">
+        <a href="/celebration-in-a-box/" className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
+          ← Back to Start
+        </a>
+      </div>
       <AnimatePresence>
         {!showBox ? (
           <motion.div
@@ -89,8 +188,11 @@ function OutcomeReveal({ type, selections }) {
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="absolute inset-0 flex items-center justify-center text-zinc-400 italic">
-                [Cinematic Visual of {type} outcome based on {JSON.stringify(selections)}]
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-400 italic p-12">
+                <span className="text-2xl mb-4">A {type} celebration...</span>
+                <span className="text-lg opacity-70 max-w-md">
+                  {moodDesc}, {scaleDesc}.
+                </span>
               </div>
             </motion.div>
             <h3 className="text-5xl font-light mb-8">Imagine this in your home...</h3>
@@ -125,7 +227,10 @@ function OutcomeReveal({ type, selections }) {
                 ))}
               </ul>
               <div className="text-5xl font-serif mb-8">$149.00</div>
-              <button className="px-12 py-6 border border-current rounded-full text-xl font-light hover:bg-current hover:text-white transition-all">
+              <button
+                onClick={() => window.location.href = 'mailto:hello@celebrationinabox.com'}
+                className="px-12 py-6 border border-current rounded-full text-xl font-light hover:bg-current hover:text-white transition-all"
+              >
                 Inquire for Delivery
               </button>
             </div>
