@@ -13,8 +13,13 @@ const theme = themes[celebration];
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{celebration} | Celebration In A Box</title>
+		<style>
+			@tailwind base;
+			@tailwind components;
+			@tailwind utilities;
+		</style>
 	</head>
-	<body class={`${theme.bg} ${theme.text} transition-colors duration-1000 overflow-x-hidden`}>
+	<body class={`${theme.bg} ${theme.text} transition-colors duration-1000 overflow-x-hidden min-h-screen flex items-center justify-center`}>
 		<slot />
 	</body>
 </html>
