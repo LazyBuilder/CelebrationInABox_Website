@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Package, Eye, Heart, Sparkles } from 'lucide-react';
+import { SITE_CONFIG } from '../config';
+
+const BACK_HREF = SITE_CONFIG.basePath ? `${SITE_CONFIG.basePath}/` : '/';
 
 const CELEBRATION_CONFIGS = {
   birthday: {
@@ -123,7 +126,7 @@ export default function CelebrationFlow({ type }) {
   return (
     <div className="min-h-screen flex items-center justify-center p-6 relative">
       <div className="absolute top-8 left-8">
-        <a href="/celebration-in-a-box/" className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
+        <a href={BACK_HREF} className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
           ← Back to Start
         </a>
       </div>
@@ -171,7 +174,7 @@ function OutcomeReveal({ type, selections }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center relative">
       <div className="absolute top-8 left-8">
-        <a href="/celebration-in-a-box/" className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
+        <a href={BACK_HREF} className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
           ← Back to Start
         </a>
       </div>
@@ -227,12 +230,12 @@ function OutcomeReveal({ type, selections }) {
                 ))}
               </ul>
               <div className="text-5xl font-serif mb-8">$149.00</div>
-              <button
-                onClick={() => window.location.href = 'mailto:hello@celebrationinabox.com'}
-                className="px-12 py-6 border border-current rounded-full text-xl font-light hover:bg-current hover:text-white transition-all"
+              <a
+                href="mailto:hello@celebrationinabox.com"
+                className="px-12 py-6 border border-current rounded-full text-xl font-light hover:bg-current hover:text-white transition-all inline-block"
               >
                 Inquire for Delivery
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

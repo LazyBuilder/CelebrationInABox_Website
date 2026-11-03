@@ -1,5 +1,7 @@
 ---
+import '../styles/global.css';
 const { celebration } = Astro.props;
+const description = `A curated ${celebration} celebration kit by Celebration In A Box.`;
 const themes = {
   birthday: { bg: 'bg-yellow-50', text: 'text-yellow-900', accent: 'bg-yellow-400', gradient: 'from-yellow-200 to-yellow-100' },
   anniversary: { bg: 'bg-rose-50', text: 'text-rose-900', accent: 'bg-rose-500', gradient: 'from-rose-200 to-rose-100' },
@@ -13,11 +15,7 @@ const theme = themes[celebration];
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>{celebration} | Celebration In A Box</title>
-		<style>
-			@tailwind base;
-			@tailwind components;
-			@tailwind utilities;
-		</style>
+		<meta name="description" content={description} />
 	</head>
 	<body class={`${theme.bg} ${theme.text} transition-colors duration-1000 overflow-x-hidden min-h-screen flex items-center justify-center`}>
 		<slot />

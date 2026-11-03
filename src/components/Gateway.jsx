@@ -39,7 +39,7 @@ export default function Gateway() {
               onMouseLeave={() => setHovered(null)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative px-12 py-6 text-2xl font-light border border-zinc-200 rounded-full transition-all duration-500 hover:border-zinc-900 flex items-center gap-6 overflow-hidden cursor-pointer"
+              className="group relative px-12 py-6 text-2xl font-light border border-zinc-200 rounded-full transition-all duration-500 hover:border-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-900 flex items-center gap-6 overflow-hidden cursor-pointer"
             >
               <span className="relative z-10">{item.label}</span>
               <ArrowRight

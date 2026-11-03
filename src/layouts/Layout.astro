@@ -1,5 +1,7 @@
 ---
-const { title } = Astro.props;
+const { title, description = 'Celebration In A Box — curated celebration kits for every occasion.' } = Astro.props;
+import '../styles/global.css';
+const canonicalURL = Astro.url;
 ---
 <!doctype html>
 <html lang="en" class="h-full">
@@ -8,11 +10,14 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
-		<style>
-			@tailwind base;
-			@tailwind components;
-			@tailwind utilities;
-		</style>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL.href} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
 	</head>
 	<body class="h-full m-0 p-0 bg-white text-zinc-900">
 		<slot />

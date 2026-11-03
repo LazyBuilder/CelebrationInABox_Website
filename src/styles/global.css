@@ -4,6 +4,10 @@
 
 :root {
   --accent: #000000;
+  --color-accent: #000000;
+  --color-birthday: #FFD700;
+  --color-anniversary: #E63946;
+  --color-congratulations: #457B9D;
 }
 
 body {
