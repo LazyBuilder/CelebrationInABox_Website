@@ -104,6 +104,10 @@ Acceptance: Full happy path birthday → 3 questions → reveal → inquire emai
 ## Recommended next slice (do NOT do all at once)
 Start with **Sprint 0 (BL-01, BL-03) → Sprint 1 (BL-05, BL-07, BL-08)**. That single slice (base-path consistency + remove stray folder) is what makes the app actually deployable; everything else assumes it works.
 
+## Sprint 7 — Deployment hygiene (added after CI run)
+- [x] **BL-38 (P1)** GitHub Actions `node-version` bumped to `"22"`.
+- [x] **BL-39 (P1)** Favicon href now base-aware (`/celebration-in-a-box/favicon.svg` in build); `public/favicon.svg` exists.
+
 ## Open questions for the owner
 1. Final GitHub username/org + repo name for `site` and base path (currently placeholders).
 2. Is `/celebration-in-a-box` the final published slug, or will this move to a custom domain?
