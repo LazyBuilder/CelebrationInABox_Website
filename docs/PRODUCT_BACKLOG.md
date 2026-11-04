@@ -2,7 +2,7 @@
 
 **Status:** Initial scaffolding. Stack: Astro 5 + React 19 + Tailwind 3 (via `@astrojs/tailwind`).
 
-**Goal:** Get the site working end-to-end locally and on GitHub Pages (base path `/celebration-in-a-box`), with working navigation, styles, and conversion flow.
+**Goal:** Get the site working end-to-end locally and on GitHub Pages (base path `/CelebrationInABox_Website`), with working navigation, styles, and conversion flow.
 
 **Working rule:** Fix one epic at a time. Each item below should land in its own small PR/commit. Do not batch epics.
 
@@ -27,14 +27,14 @@
 ## Sprint 1 — Environment & deployment parity
 
 ### Epic: Base-path & config consistency
-- [x] **BL-05 (P0)** `astro.config.mjs` `base` reverted to `/celebration-in-a-box`.
+- [x] **BL-05 (P0)** `astro.config.mjs` `base` reverted to `/CelebrationInABox_Website`.
 - [ ] **BL-06 (P0)** Set `site` to the real GitHub Pages URL once known (currently `https://your-username.github.io`).
-- [x] **BL-07 (P0)** `SITE_CONFIG.basePath` now derives from `import.meta.env.BASE_URL` (handles / and /celebration-in-a-box/).
-- [x] **BL-08 (P0)** Hardcoded `/celebration-in-a-box/` strings in `CelebrationFlow.jsx` back links replaced with base-aware `BACK_HREF`; `Gateway.jsx` uses `SITE_CONFIG.basePath`.
-- [x] **BL-09 (P1)** `npm run build -- --base /celebration-in-a-box` succeeds; asset URLs and gateway links are correctly prefixed.
+- [x] **BL-07 (P0)** `SITE_CONFIG.basePath` now derives from `import.meta.env.BASE_URL` (handles / and /CelebrationInABox_Website/).
+- [x] **BL-08 (P0)** Hardcoded `/CelebrationInABox_Website/` strings in `CelebrationFlow.jsx` back links replaced with base-aware `BACK_HREF`; `Gateway.jsx` uses `SITE_CONFIG.basePath`.
+- [x] **BL-09 (P1)** `npm run build -- --base /CelebrationInABox_Website` succeeds; asset URLs and gateway links are correctly prefixed.
 - [ ] **BL-10 (P1)** Add a smoke check in CI (build succeeds) — already present; consider adding `astro check`.
 
-Acceptance: `npm run build -- --base /celebration-in-a-box` yields asset URLs prefixed correctly and all internal links resolve.
+Acceptance: `npm run build -- --base /CelebrationInABox_Website` yields asset URLs prefixed correctly and all internal links resolve.
 
 ---
 
@@ -106,10 +106,10 @@ Start with **Sprint 0 (BL-01, BL-03) → Sprint 1 (BL-05, BL-07, BL-08)**. That 
 
 ## Sprint 7 — Deployment hygiene (added after CI run)
 - [x] **BL-38 (P1)** GitHub Actions `node-version` bumped to `"22"`.
-- [x] **BL-39 (P1)** Favicon href now base-aware (`/celebration-in-a-box/favicon.svg` in build); `public/favicon.svg` exists.
+- [x] **BL-39 (P1)** Favicon href now base-aware (`/CelebrationInABox_Website/favicon.svg` in build); `public/favicon.svg` exists.
 
 ## Open questions for the owner
 1. Final GitHub username/org + repo name for `site` and base path (currently placeholders).
-2. Is `/celebration-in-a-box` the final published slug, or will this move to a custom domain?
+2. Is `/CelebrationInABox_Website` the final published slug, or will this move to a custom domain?
 3. Budget scope: is the "kit" real commerce (Stripe) or inquiry-only for v1? (Affects Epic 4 price/inquire item.)
 4. Do we keep the gateway's 3-option model, or expand occasions?
