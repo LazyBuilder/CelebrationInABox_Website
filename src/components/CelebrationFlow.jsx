@@ -1,9 +1,45 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Package, Eye, Heart, Sparkles } from 'lucide-react';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { SITE_CONFIG } from '../config';
 
+const cn = (...inputs) => twMerge(clsx(inputs));
+
 const BACK_HREF = SITE_CONFIG.basePath ? `${SITE_CONFIG.basePath}/` : '/';
+
+const THEMES = {
+  birthday: {
+    page: 'bg-gradient-to-br from-amber-100 via-yellow-50 to-orange-100 text-amber-950',
+    heading: 'text-5xl md:text-7xl font-black uppercase tracking-tight mb-4 text-amber-900',
+    sub: 'uppercase tracking-[0.25em] text-xs text-amber-700',
+    button: 'rounded-2xl border-2 border-amber-400 bg-white/70 text-amber-900 hover:bg-amber-400 hover:text-amber-950 font-bold uppercase tracking-wide shadow-lg shadow-amber-200/40',
+    optionText: 'text-2xl',
+    card: 'bg-gradient-to-br from-amber-200 to-orange-300 text-amber-950',
+    price: 'text-6xl font-extrabold tracking-tight text-amber-900',
+  },
+  anniversary: {
+    page: 'bg-gradient-to-br from-rose-100 via-pink-50 to-red-50 text-rose-950',
+    heading: 'text-5xl md:text-7xl font-light italic font-serif mb-4 text-rose-900',
+    sub: 'tracking-[0.35em] text-xs uppercase text-rose-600',
+    button: 'rounded-full border border-rose-300 bg-white/70 text-rose-900 hover:bg-rose-600 hover:text-white font-light tracking-widest shadow-md shadow-rose-200/40',
+    optionText: 'text-2xl font-light',
+    card: 'bg-gradient-to-br from-rose-200 to-pink-300 text-rose-950',
+    price: 'text-6xl font-light font-serif text-rose-900',
+  },
+  congratulations: {
+    page: 'bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100 text-sky-950',
+    heading: 'text-5xl md:text-7xl font-bold tracking-tight mb-4 text-sky-900',
+    sub: 'tracking-[0.2em] text-xs uppercase font-semibold text-sky-700',
+    button: 'rounded-xl border border-sky-600 bg-sky-600 text-white hover:bg-sky-700 font-semibold tracking-wide shadow-lg shadow-sky-200/40',
+    optionText: 'text-2xl font-semibold',
+    card: 'bg-gradient-to-br from-sky-200 to-indigo-300 text-sky-950',
+    price: 'text-6xl font-bold tracking-tight text-sky-900',
+  },
+};
+
+const theme = (type) => THEMES[type] || THEMES.birthday;
 
 const CELEBRATION_CONFIGS = {
   birthday: {
@@ -109,6 +145,7 @@ export default function CelebrationFlow({ type }) {
 
   const config = CELEBRATION_CONFIGS[type] || CELEBRATION_CONFIGS.birthday;
   const steps = config.steps;
+  const t = theme(type);
 
   const handleSelect = (value) => {
     setSelections({ ...selections, [steps[step].id]: value });
@@ -124,7 +161,7 @@ export default function CelebrationFlow({ type }) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 relative">
+    <div className={cn('min-h-screen flex items-center justify-center p-6 relative', t.page)}>
       <div className="absolute top-8 left-8">
         <a href={BACK_HREF} className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
           ← Back to Start
@@ -142,7 +179,7 @@ export default function CelebrationFlow({ type }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl w-full text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-light mb-12">{steps[step].question}</h2>
+          <h2 className={t.heading}>{steps[step].question}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {steps[step].options.map((opt) => (
               <motion.button
@@ -150,7 +187,7 @@ export default function CelebrationFlow({ type }) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleSelect(opt.value)}
-                className="p-8 border border-current rounded-3xl text-2xl font-light flex flex-col items-center gap-4 transition-all hover:bg-current hover:text-white"
+                className={`p-8 flex flex-col items-center gap-4 transition-all ${t.button}`}
               >
                 {opt.icon}
                 {opt.label}
@@ -171,8 +208,10 @@ function OutcomeReveal({ type, selections }) {
   const moodDesc = OUTCOME_MAP[moodValue] || 'a uniquely curated atmosphere';
   const scaleDesc = OUTCOME_MAP[scaleValue] || 'tailored to your needs';
 
+  const t = theme(type);
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center relative">
+    <div className={cn('min-h-screen flex flex-col items-center justify-center p-6 text-center relative', t.page)}>
       <div className="absolute top-8 left-8">
         <a href={BACK_HREF} className="text-sm font-light opacity-50 hover:opacity-100 transition-opacity">
           ← Back to Start
@@ -187,23 +226,23 @@ function OutcomeReveal({ type, selections }) {
             className="max-w-4xl"
           >
             <motion.div
-              className="w-full aspect-video bg-zinc-200 rounded-3xl mb-12 overflow-hidden relative"
+              className={`w-full aspect-video rounded-3xl mb-12 overflow-hidden relative ${t.card}`}
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-400 italic p-12">
+              <div className="absolute inset-0 flex flex-col items-center justify-center italic p-12">
                 <span className="text-2xl mb-4">A {type} celebration...</span>
                 <span className="text-lg opacity-70 max-w-md">
                   {moodDesc}, {scaleDesc}.
                 </span>
               </div>
             </motion.div>
-            <h3 className="text-5xl font-light mb-8">Imagine this in your home...</h3>
+            <h3 className={cn(t.heading, 'mb-8')}>Imagine this in your home...</h3>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowBox(true)}
-              className="px-12 py-6 bg-current text-white rounded-full text-xl font-medium"
+              className={`px-12 py-6 text-xl ${t.button}`}
             >
               Bring this to life
             </motion.button>
@@ -229,10 +268,10 @@ function OutcomeReveal({ type, selections }) {
                   </li>
                 ))}
               </ul>
-              <div className="text-5xl font-serif mb-8">$149.00</div>
+              <div className={cn(t.price, 'mb-8')}>$149.00</div>
               <a
                 href="mailto:hello@celebrationinabox.com"
-                className="px-12 py-6 border border-current rounded-full text-xl font-light hover:bg-current hover:text-white transition-all inline-block"
+                className={`px-12 py-6 text-xl inline-block ${t.button}`}
               >
                 Inquire for Delivery
               </a>

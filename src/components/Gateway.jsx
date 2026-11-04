@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '../config';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+const cn = (...inputs) => twMerge(clsx(inputs));
 
 const CELEBRATIONS = [
   { id: 'birthday', label: 'A Birthday', color: '#FFD700', mood: 'Energetic' },

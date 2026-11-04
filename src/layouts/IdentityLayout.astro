@@ -3,9 +3,9 @@ import '../styles/global.css';
 const { celebration } = Astro.props;
 const description = `A curated ${celebration} celebration kit by Celebration In A Box.`;
 const themes = {
-  birthday: { bg: 'bg-yellow-50', text: 'text-yellow-900', accent: 'bg-yellow-400', gradient: 'from-yellow-200 to-yellow-100' },
-  anniversary: { bg: 'bg-rose-50', text: 'text-rose-900', accent: 'bg-rose-500', gradient: 'from-rose-200 to-rose-100' },
-  congratulations: { bg: 'bg-sky-50', text: 'text-sky-900', accent: 'bg-sky-500', gradient: 'from-sky-200 to-sky-100' },
+  birthday: { bg: 'bg-gradient-to-br from-amber-100 via-yellow-50 to-orange-100', text: 'text-amber-900', accent: 'bg-amber-400', gradient: 'from-amber-200 via-yellow-100 to-orange-100' },
+  anniversary: { bg: 'bg-gradient-to-br from-rose-100 via-pink-50 to-red-50', text: 'text-rose-900', accent: 'bg-rose-500', gradient: 'from-rose-200 via-pink-100 to-red-100' },
+  congratulations: { bg: 'bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100', text: 'text-sky-900', accent: 'bg-sky-500', gradient: 'from-sky-200 via-blue-100 to-indigo-100' },
 };
 const theme = themes[celebration];
 ---
