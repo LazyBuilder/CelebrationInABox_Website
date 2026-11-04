@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      var wrong = '/celebration-in-a-box';
+      var right = '/CelebrationInABox_Website';
+      if (location.pathname.toLowerCase().indexOf(wrong) === 0) {
+        location.replace(location.href.replace(/celebration-in-a-box/gi, 'CelebrationInABox_Website'));
+      } else {
+        // Fallback: send to the real home page.
+        location.replace(right + '/');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to the Celebration In A Box site…</p>
+</body>
+</html>
