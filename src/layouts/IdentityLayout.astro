@@ -3,9 +3,9 @@ import '../styles/global.css';
 const { celebration } = Astro.props;
 const description = `A curated ${celebration} celebration kit by Celebration In A Box.`;
 const themes = {
-  birthday: { bg: 'bg-gradient-to-br from-amber-100 via-yellow-50 to-orange-100', text: 'text-amber-900', accent: 'bg-amber-400', gradient: 'from-amber-200 via-yellow-100 to-orange-100' },
-  anniversary: { bg: 'bg-gradient-to-br from-rose-100 via-pink-50 to-red-50', text: 'text-rose-900', accent: 'bg-rose-500', gradient: 'from-rose-200 via-pink-100 to-red-100' },
-  congratulations: { bg: 'bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100', text: 'text-sky-900', accent: 'bg-sky-500', gradient: 'from-sky-200 via-blue-100 to-indigo-100' },
+  birthday: { bg: 'bg-gradient-to-br from-[#1a1408] via-[#2a1f0f] to-[#1c1005]', text: 'text-amber-50', accent: 'bg-amber-400', gradient: 'from-amber-700 via-yellow-800 to-orange-900' },
+  anniversary: { bg: 'bg-gradient-to-br from-[#1a0d12] via-[#2a1219] to-[#14080c]', text: 'text-rose-50', accent: 'bg-rose-500', gradient: 'from-rose-700 via-pink-800 to-red-900' },
+  congratulations: { bg: 'bg-gradient-to-br from-[#0d1120] via-[#131a2e] to-[#08101f]', text: 'text-sky-50', accent: 'bg-sky-500', gradient: 'from-sky-700 via-blue-800 to-indigo-900' },
 };
 const theme = themes[celebration];
 ---
