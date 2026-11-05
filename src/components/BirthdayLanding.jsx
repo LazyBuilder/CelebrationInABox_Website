@@ -51,18 +51,24 @@ export default function BirthdayLanding() {
   const activeCount = Object.values(filters).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1408] via-[#2a1f0f] to-[#1c1005] text-amber-50">
+    <div
+      className="min-h-screen text-amber-950"
+      style={{
+        backgroundImage:
+          'radial-gradient(circle at 15% 20%, rgba(251,191,36,0.18) 0%, transparent 35%), radial-gradient(circle at 85% 70%, rgba(249,115,22,0.14) 0%, transparent 40%), linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%)',
+      }}
+    >
       {/* Hero */}
       <header className="mx-auto max-w-7xl px-6 pt-16 pb-10">
         <div
-          className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-white/5 px-5 py-2 text-xs uppercase tracking-[0.3em] text-amber-200 backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-white/80 px-5 py-2 text-xs uppercase tracking-[0.3em] text-amber-800 backdrop-blur"
         >
           Birthday Studio
         </div>
-        <h1 className="mt-6 font-['Anton'] text-6xl md:text-8xl uppercase tracking-tight text-amber-100 drop-shadow-[0_0_40px_rgba(251,191,36,0.3)]">
+        <h1 className="mt-6 font-['Anton'] text-6xl md:text-8xl uppercase tracking-tight text-amber-950 drop-shadow-[0_0_40px_rgba(251,191,36,0.3)]">
           Birthday Kits
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-amber-100/70">
+        <p className="mt-4 max-w-2xl text-lg text-amber-800/80">
           Energetic, ready-to-run celebrations. Filter by vibe, crowd size, and the moment you want to own.
         </p>
       </header>
@@ -70,9 +76,9 @@ export default function BirthdayLanding() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 pb-24 lg:grid-cols-[280px_1fr]">
         {/* Sidebar filters */}
         <aside className="lg:sticky lg:top-6 lg:self-start">
-          <div className="rounded-3xl border border-amber-400/20 bg-white/5 p-6 backdrop-blur-xl">
+          <div className="rounded-3xl border border-amber-200/60 bg-white/80 p-6 backdrop-blur-xl">
             <div className="mb-6 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-amber-200">
+              <div className="flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-amber-800">
                 <Filter className="h-4 w-4" />
                 Filters
               </div>
@@ -80,7 +86,7 @@ export default function BirthdayLanding() {
                 <button
                   type="button"
                   onClick={clearAll}
-                  className="flex items-center gap-1 text-xs uppercase tracking-wider text-amber-300 hover:text-amber-100"
+                  className="flex items-center gap-1 text-xs uppercase tracking-wider text-amber-700 hover:text-amber-950"
                 >
                   <X className="h-3 w-3" />
                   Clear
@@ -90,7 +96,7 @@ export default function BirthdayLanding() {
 
             {Object.entries(FILTERS).map(([key, options]) => (
               <div key={key} className="mb-6 last:mb-0">
-                <p className="mb-3 text-xs uppercase tracking-[0.25em] text-amber-300/70">
+                <p className="mb-3 text-xs uppercase tracking-[0.25em] text-amber-700/80">
                   {key === 'mood'
                     ? 'Vibe'
                     : key === 'scale'
@@ -108,8 +114,8 @@ export default function BirthdayLanding() {
                         className={cn(
                           'flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left text-sm font-bold uppercase tracking-wide transition-all',
                           active
-                            ? 'border-amber-400 bg-amber-400/20 text-amber-50 shadow-[0_0_20px_rgba(251,191,36,0.25)]'
-                            : 'border-white/10 bg-white/5 text-amber-100/70 hover:border-amber-400/40 hover:bg-white/10'
+                            ? 'border-amber-400 bg-amber-400/20 text-amber-50 shadow-[0_0_20px_rgba(251,191,36,0.15)]'
+                            : 'border-amber-200/60 bg-white/80 text-amber-800/80 hover:border-amber-400/40 hover:bg-amber-100'
                         )}
                       >
                         {opt.icon}
@@ -126,7 +132,7 @@ export default function BirthdayLanding() {
         {/* Product grid */}
         <section>
           <div className="mb-6 flex items-end justify-between">
-            <p className="text-sm uppercase tracking-[0.2em] text-amber-200/60">
+            <p className="text-sm uppercase tracking-[0.2em] text-amber-800/60">
               {filtered.length} {filtered.length === 1 ? 'kit' : 'kits'}
             </p>
           </div>
@@ -138,12 +144,12 @@ export default function BirthdayLanding() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="rounded-3xl border border-white/10 bg-white/5 p-16 text-center backdrop-blur"
+                className="rounded-3xl border border-amber-200/60 bg-white/80 p-16 text-center backdrop-blur"
               >
-                <p className="font-['Anton'] text-3xl uppercase text-amber-100">
+                <p className="font-['Anton'] text-3xl uppercase text-amber-950">
                   No matching kits
                 </p>
-                <p className="mt-2 text-amber-100/60">Try clearing some filters.</p>
+                <p className="mt-2 text-amber-800/70">Try clearing some filters.</p>
               </motion.div>
             ) : (
               <motion.div
@@ -159,17 +165,17 @@ export default function BirthdayLanding() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.06 }}
-                    className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-[0_20px_60px_rgba(251,191,36,0.15)]"
+                    className="group relative flex flex-col overflow-hidden rounded-3xl border border-amber-200/60 bg-white/80 p-6 backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-amber-400/40 hover:shadow-[0_20px_60px_rgba(251,191,36,0.15)]"
                   >
-                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-400/15 text-amber-300">
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-400/15 text-amber-700">
                       {React.cloneElement(box.icon, { className: 'h-7 w-7' })}
                     </div>
-                    <h3 className="font-['Anton'] text-2xl uppercase tracking-wide text-amber-100">
+                    <h3 className="font-['Anton'] text-2xl uppercase tracking-wide text-amber-950">
                       {box.name}
                     </h3>
-                    <p className="mt-2 flex-1 text-sm text-amber-100/70">{box.tagline}</p>
+                    <p className="mt-2 flex-1 text-sm text-amber-800/80">{box.tagline}</p>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="text-3xl font-extrabold text-amber-200">
+                      <span className="text-3xl font-extrabold text-amber-800">
                         ${box.price}
                       </span>
                       <a
