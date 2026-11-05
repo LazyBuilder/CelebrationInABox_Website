@@ -12,7 +12,7 @@ const BACK_HREF = SITE_CONFIG.basePath ? `${SITE_CONFIG.basePath}/` : '/';
 const THEMES = {
   birthday: {
     page: 'bg-gradient-to-br from-[#1a1408] via-[#2a1f0f] to-[#1c1005] text-amber-50',
-    heading: 'text-5xl md:text-7xl font-black uppercase tracking-tight mb-4 text-amber-200 drop-shadow-[0_0_30px_rgba(251,191,36,0.25)]',
+    heading: 'text-5xl md:text-7xl font-birthday uppercase tracking-tight mb-4 text-amber-200 drop-shadow-[0_0_30px_rgba(251,191,36,0.25)]',
     sub: 'uppercase tracking-[0.25em] text-xs text-amber-300/80',
     button: 'rounded-2xl border border-amber-400/40 bg-white/5 text-amber-100 hover:bg-amber-400/20 hover:border-amber-400 font-bold uppercase tracking-wide shadow-lg shadow-amber-900/40 backdrop-blur',
     optionText: 'text-2xl',
@@ -21,7 +21,7 @@ const THEMES = {
   },
   anniversary: {
     page: 'bg-gradient-to-br from-[#1a0d12] via-[#2a1219] to-[#14080c] text-rose-50',
-    heading: 'text-5xl md:text-7xl font-light italic font-serif mb-4 text-rose-100 drop-shadow-[0_0_30px_rgba(244,63,94,0.25)]',
+    heading: 'text-5xl md:text-7xl font-light italic font-anniversary mb-4 text-rose-100 drop-shadow-[0_0_30px_rgba(244,63,94,0.25)]',
     sub: 'tracking-[0.35em] text-xs uppercase text-rose-300/80',
     button: 'rounded-full border border-rose-300/40 bg-white/5 text-rose-100 hover:bg-rose-600/30 hover:border-rose-400 font-light tracking-widest shadow-md shadow-rose-900/40 backdrop-blur',
     optionText: 'text-2xl font-light',
@@ -30,7 +30,7 @@ const THEMES = {
   },
   congratulations: {
     page: 'bg-gradient-to-br from-[#0d1120] via-[#131a2e] to-[#08101f] text-sky-50',
-    heading: 'text-5xl md:text-7xl font-bold tracking-tight mb-4 text-sky-100 drop-shadow-[0_0_30px_rgba(14,165,233,0.25)]',
+    heading: 'text-5xl md:text-7xl font-royal tracking-tight mb-4 text-sky-100 drop-shadow-[0_0_30px_rgba(14,165,233,0.25)]',
     sub: 'tracking-[0.2em] text-xs uppercase font-semibold text-sky-300/80',
     button: 'rounded-xl border border-sky-500/40 bg-sky-500/20 text-sky-100 hover:bg-sky-500/40 hover:border-sky-400 font-semibold tracking-wide shadow-lg shadow-sky-900/40 backdrop-blur',
     optionText: 'text-2xl font-semibold',
