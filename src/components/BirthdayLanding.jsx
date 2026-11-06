@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Package, Heart, Sparkles, Eye, Filter, X, ArrowRight } from 'lucide-react';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { SITE_CONFIG } from '../config';
+import { BIRTHDAY_BOXES as BOXES } from '../data/birthdayBoxes';
+
+const boxPath = (id) =>
+  SITE_CONFIG.basePath ? `${SITE_CONFIG.basePath}/birthday/${id}/` : `/birthday/${id}/`;
 
 const cn = (...inputs) => twMerge(clsx(inputs));
 
@@ -29,15 +34,6 @@ const FILTERS = {
   ],
 };
 
-const BOXES = [
-  { id: 'neon-bash', name: 'Neon Bash Kit', price: 199, tagline: 'Glow, music-led styling for a packed room.', mood: 'energetic', scale: 'large', detail: 'experience', accent: 'from-amber-300 to-orange-500' },
-  { id: 'cake-garden', name: 'Cake Garden', price: 149, tagline: 'Floral centerpieces and a showstopper cake moment.', mood: 'intimate', scale: 'small', detail: 'decor', accent: 'from-yellow-200 to-amber-400' },
-  { id: 'family-festival', name: 'Family Festival', price: 179, tagline: 'Games, garlands and keepsake props for all ages.', mood: 'energetic', scale: 'large', detail: 'decor', accent: 'from-lime-300 to-green-500' },
-  { id: 'twilight-dinner', name: 'Twilight Dinner', price: 159, tagline: 'Candle-lit table styling for an intimate evening.', mood: 'intimate', scale: 'small', detail: 'experience', accent: 'from-rose-300 to-pink-500' },
-  { id: 'garden-club', name: 'Garden Club', price: 169, tagline: 'Outdoor-ready decor with fresh botanicals.', mood: 'intimate', scale: 'large', detail: 'decor', accent: 'from-emerald-300 to-teal-500' },
-  { id: 'vip-night', name: 'VIP Night', price: 229, tagline: 'A concierge-style celebration experience.', mood: 'energetic', scale: 'small', detail: 'experience', accent: 'from-indigo-300 to-violet-500' },
-];
-
 export default function BirthdayLanding() {
   const [filters, setFilters] = useState({ mood: null, scale: null, detail: null });
 
@@ -60,7 +56,7 @@ export default function BirthdayLanding() {
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden text-[#243010]"
+      className="relative min-h-screen w-full overflow-hidden text-[#243010]"
       style={{
         background:
           'linear-gradient(135deg, #F3E8EE 0%, #EAF0E3 45%, #BACDB0 100%)',
@@ -262,6 +258,14 @@ export default function BirthdayLanding() {
                     <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: PALETTE.forest }}>
                       {box.tagline}
                     </p>
+                    <a
+                      href={boxPath(box.id)}
+                      className="mt-3 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.2em] hover:opacity-70"
+                      style={{ color: PALETTE.gold }}
+                    >
+                      View details
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
                     <div className="mt-6 flex items-center justify-between">
                       <span className="text-3xl font-extrabold" style={{ color: PALETTE.gold }}>
                         ${box.price}
