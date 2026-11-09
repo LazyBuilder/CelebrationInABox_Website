@@ -98,7 +98,7 @@ export default function BirthdayLanding() {
             </p>
           </div>
           <div
-            className="relative hidden h-64 overflow-hidden rounded-[2rem] border lg:block"
+            className="relative hidden h-80 overflow-hidden rounded-[2rem] border lg:block"
             style={{
               borderColor: PALETTE.sage,
               background: 'linear-gradient(135deg, #CA8A04 0%, #2A3C24 70%)',
@@ -235,7 +235,7 @@ export default function BirthdayLanding() {
                     style={{ borderColor: PALETTE.sage, background: 'rgba(255,255,255,0.6)' }}
                   >
                     <div
-                      className="mb-6 h-40 overflow-hidden rounded-2xl border"
+                      className="mb-6 h-56 overflow-hidden rounded-2xl border"
                       style={{
                         borderColor: PALETTE.sage,
                         background: `linear-gradient(135deg, ${PALETTE.gold} 0%, ${PALETTE.forest} 100%)`,
