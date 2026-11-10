@@ -16,7 +16,7 @@ const PALETTE = {
   forest: '#2A3C24',
   sage: '#BACDB0',
   blush: '#F3E8EE',
-  gold: '#CA8A04',
+  gold: '#FACC15',
 };
 
 const FILTERS = {
@@ -101,7 +101,7 @@ export default function BirthdayLanding() {
             className="relative hidden h-80 overflow-hidden rounded-[2rem] border lg:block"
             style={{
               borderColor: PALETTE.sage,
-              background: 'linear-gradient(135deg, #CA8A04 0%, #2A3C24 70%)',
+              background: 'linear-gradient(135deg, #FACC15 0%, #2A3C24 70%)',
             }}
           >
             <div

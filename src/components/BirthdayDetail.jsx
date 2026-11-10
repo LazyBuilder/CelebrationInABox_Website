@@ -32,7 +32,7 @@ export default function BirthdayDetail({ slug }) {
       <section className="relative overflow-hidden px-6 py-12">
         <div
           className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border"
-          style={{ borderColor: '#BACDB0', background: `linear-gradient(135deg, #CA8A04 0%, #2A3C24 80%)` }}
+          style={{ borderColor: '#BACDB0', background: `linear-gradient(135deg, #FACC15 0%, #2A3C24 80%)` }}
         >
           <div
             className="absolute inset-0 opacity-30"
@@ -52,7 +52,7 @@ export default function BirthdayDetail({ slug }) {
               <span className="text-4xl font-extrabold">${box.price}</span>
               <a
                 href="mailto:hello@celebrationinabox.com"
-                className="inline-flex items-center gap-2 rounded-full bg-[#CA8A04] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-[#243010] transition-colors hover:bg-[#d8a31f]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#FACC15] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-[#243010] transition-colors hover:bg-[#eab308]"
               >
                 Inquire
                 <ArrowRight className="h-4 w-4" />
@@ -70,8 +70,8 @@ export default function BirthdayDetail({ slug }) {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
-            { icon: <Cake className="h-8 w-8" />, label: 'Cake moment', grad: 'from-[#CA8A04] to-[#BACDB0]' },
-            { icon: <Music className="h-8 w-8" />, label: 'Sound & mood', grad: 'from-[#2A3C24] to-[#CA8A04]' },
+            { icon: <Cake className="h-8 w-8" />, label: 'Cake moment', grad: 'from-[#FACC15] to-[#BACDB0]' },
+            { icon: <Music className="h-8 w-8" />, label: 'Sound & mood', grad: 'from-[#2A3C24] to-[#FACC15]' },
             { icon: <Package className="h-8 w-8" />, label: 'Kit unpacked', grad: 'from-[#BACDB0] to-[#F3E8EE]' },
           ].map((g) => (
             <motion.div
@@ -112,7 +112,7 @@ export default function BirthdayDetail({ slug }) {
             <ul className="mt-6 space-y-3">
               {box.includes.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold" style={{ color: '#243010' }}>
-                  <CheckCircle2 className="h-5 w-5" style={{ color: '#CA8A04' }} />
+                  <CheckCircle2 className="h-5 w-5" style={{ color: '#FACC15' }} />
                   {item}
                 </li>
               ))}
@@ -145,7 +145,7 @@ export default function BirthdayDetail({ slug }) {
             <a
               href="mailto:hello@celebrationinabox.com"
               className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] transition-colors"
-              style={{ background: '#CA8A04', color: '#243010' }}
+              style={{ background: '#FACC15', color: '#243010' }}
             >
               Inquire for Delivery
               <ArrowRight className="h-4 w-4" />
