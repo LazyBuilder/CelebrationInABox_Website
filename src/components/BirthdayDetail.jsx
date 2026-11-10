@@ -32,15 +32,16 @@ export default function BirthdayDetail({ slug }) {
       <section className="relative overflow-hidden px-6 pt-12 pb-8">
         <div
           className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border shadow-xl"
-          style={{ borderColor: '#BACDB0', background: `linear-gradient(135deg, #FACC15 0%, #2A3C24 80%)` }}
+          style={{ borderColor: '#BACDB0' }}
         >
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage:
-                'repeating-radial-gradient(circle at 30% 40%, rgba(255,255,255,0.45) 0 2px, transparent 2px 18px)',
-            }}
-          />
+          {box.image && (
+            <img
+              src={box.image}
+              alt={box.name}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#16220b]/95 via-[#1a290d]/85 to-black/60 backdrop-blur-[2px]" />
           <div className="relative z-10 flex flex-col gap-6 p-8 md:p-14 text-white">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <a

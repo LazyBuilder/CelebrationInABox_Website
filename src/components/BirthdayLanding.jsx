@@ -4,7 +4,7 @@ import { Package, Heart, Sparkles, Eye, Filter, X, ArrowRight } from 'lucide-rea
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { SITE_CONFIG } from '../config';
-import { BIRTHDAY_BOXES as BOXES } from '../data/birthdayBoxes';
+import { BIRTHDAY_BOXES as BOXES, getImagePath } from '../data/birthdayBoxes';
 
 const boxPath = (id) =>
   SITE_CONFIG.basePath ? `${SITE_CONFIG.basePath}/birthday/${id}/` : `/birthday/${id}/`;
@@ -104,18 +104,16 @@ export default function BirthdayLanding() {
             className="group relative hidden h-80 overflow-hidden rounded-[2rem] border transition-all hover:shadow-2xl lg:block"
             style={{
               borderColor: PALETTE.sage,
-              background: 'linear-gradient(135deg, #FACC15 0%, #2A3C24 70%)',
             }}
           >
-            <div
-              className="absolute inset-0 opacity-30 transition-opacity duration-300 group-hover:opacity-40"
-              style={{
-                backgroundImage:
-                  'repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35) 0 2px, transparent 2px 16px)',
-              }}
+            <img
+              src={getImagePath('hero-signature.jpg')}
+              alt="Signature Birthday Collection"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#243010]/95 via-[#243010]/45 to-black/25" />
             <div className="absolute top-6 left-6">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/35 backdrop-blur-md px-3.5 py-1.5 text-xs uppercase tracking-[0.2em] text-amber-200 border border-amber-300/30">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/45 backdrop-blur-md px-3.5 py-1.5 text-xs uppercase tracking-[0.2em] text-amber-200 border border-amber-300/30">
                 <Sparkles className="h-3.5 w-3.5" />
                 Featured Experience
               </span>
@@ -259,23 +257,25 @@ export default function BirthdayLanding() {
                         background: `linear-gradient(135deg, ${PALETTE.gold} 0%, ${PALETTE.forest} 100%)`,
                       }}
                     >
-                      <div
-                        className="h-full w-full opacity-40 transition-opacity duration-300 group-hover/img:opacity-60"
-                        style={{
-                          backgroundImage:
-                            'repeating-radial-gradient(circle at 30% 40%, rgba(255,255,255,0.5) 0 2px, transparent 2px 18px)',
-                        }}
-                      />
+                      {box.image && (
+                        <img
+                          src={box.image}
+                          alt={box.name}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                          loading="lazy"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25" />
                       {/* Filter/Attribute badges */}
                       <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-1.5">
-                        <span className="rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
+                        <span className="rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
                           {box.mood}
                         </span>
-                        <span className="rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/90 border border-white/20">
+                        <span className="rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/90 border border-white/20">
                           {box.scale === 'small' ? 'Just Us Two' : 'Whole Crew'}
                         </span>
                       </div>
-                      <div className="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#243010] shadow-sm flex items-center gap-1 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                      <div className="absolute bottom-3 right-3 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#243010] shadow-md flex items-center gap-1 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
                         Explore <ArrowRight className="h-3 w-3" />
                       </div>
                     </a>

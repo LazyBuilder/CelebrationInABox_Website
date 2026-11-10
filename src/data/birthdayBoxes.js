@@ -1,3 +1,8 @@
+import { SITE_CONFIG } from '../config';
+
+const getImagePath = (filename) =>
+  SITE_CONFIG.basePath ? `${SITE_CONFIG.basePath}/images/birthday/${filename}` : `/images/birthday/${filename}`;
+
 export const BIRTHDAY_BOXES = [
   {
     id: 'neon-bash',
@@ -11,6 +16,7 @@ export const BIRTHDAY_BOXES = [
       'A high-energy party kit built around neon lighting cues, a curated playlist guide, and immersive decor that turns any living room into a glow-floor celebration.',
     includes: ['Neon signage set', 'UV lighting guide', 'Glow accessories (12)', 'Sound styling playbook'],
     accent: 'from-fuchsia-400 to-violet-600',
+    image: getImagePath('neon-bash.jpg'),
   },
   {
     id: 'cake-garden',
@@ -24,6 +30,7 @@ export const BIRTHDAY_BOXES = [
       'A romantic-meets-festive floral setup with centerpiece instructions, cake styling tools, and keepsake props for an intimate birthday.',
     includes: ['Floral centerpiece kit', 'Cake stand + topper', 'Step-by-step styling guide', 'Memory cards'],
     accent: 'from-amber-300 to-rose-400',
+    image: getImagePath('cake-garden.jpg'),
   },
   {
     id: 'family-festival',
@@ -37,6 +44,7 @@ export const BIRTHDAY_BOXES = [
       'A lively all-ages celebration kit with garlands, games, and keepsake crafts that keeps everyone engaged.',
     includes: ['Garland & banner kit', 'Game station set', 'Craft corner supplies', 'Photo backdrop'],
     accent: 'from-lime-300 to-green-500',
+    image: getImagePath('family-festival.jpg'),
   },
   {
     id: 'twilight-dinner',
@@ -50,6 +58,7 @@ export const BIRTHDAY_BOXES = [
       'A candle-lit dinner experience kit with table styling, menu cards, and atmosphere guidance for a quiet celebration.',
     includes: ['Candle & holder set', 'Menu cards', 'Table runner', 'Atmosphere guide'],
     accent: 'from-rose-300 to-pink-500',
+    image: getImagePath('twilight-dinner.jpg'),
   },
   {
     id: 'garden-club',
@@ -63,6 +72,7 @@ export const BIRTHDAY_BOXES = [
       'A botanical birthday setup designed for patios and backyards with weather-ready decor and fresh styling.',
     includes: ['Botanical garland kit', 'Outdoor signage', 'Picnic setup guide', 'Floral wrap'],
     accent: 'from-emerald-300 to-teal-500',
+    image: getImagePath('garden-club.jpg'),
   },
   {
     id: 'vip-night',
@@ -76,7 +86,9 @@ export const BIRTHDAY_BOXES = [
       'A premium, concierge-style birthday night kit with elevated props and a guided run-of-show.',
     includes: ['VIP decor set', 'Run-of-show playbook', 'Keepsake box', 'Ambience kit'],
     accent: 'from-indigo-300 to-violet-500',
+    image: getImagePath('vip-night.jpg'),
   },
 ];
 
 export const getBox = (id) => BIRTHDAY_BOXES.find((b) => b.id === id);
+export { getImagePath };
