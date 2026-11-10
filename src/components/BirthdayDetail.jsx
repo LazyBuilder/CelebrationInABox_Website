@@ -29,9 +29,9 @@ export default function BirthdayDetail({ slug }) {
   return (
     <div className="min-h-screen w-full text-[#243010]" style={{ background: 'linear-gradient(135deg, #F3E8EE 0%, #EAF0E3 45%, #BACDB0 100%)' }}>
       {/* Hero panel */}
-      <section className="relative overflow-hidden px-6 py-12">
+      <section className="relative overflow-hidden px-6 pt-12 pb-8">
         <div
-          className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border"
+          className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border shadow-xl"
           style={{ borderColor: '#BACDB0', background: `linear-gradient(135deg, #FACC15 0%, #2A3C24 80%)` }}
         >
           <div
@@ -41,23 +41,53 @@ export default function BirthdayDetail({ slug }) {
                 'repeating-radial-gradient(circle at 30% 40%, rgba(255,255,255,0.45) 0 2px, transparent 2px 18px)',
             }}
           />
-          <div className="relative z-10 flex flex-col gap-6 p-10 md:p-16 text-white">
-            <a href={BACK_HREF} className="inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/80 hover:text-white">
-              <ArrowLeft className="h-3.5 w-3.5" />
-              All birthday kits 🎉
-            </a>
-            <h1 className="font-['Anton'] text-5xl uppercase tracking-tight md:text-7xl">{box.name}</h1>
-            <p className="max-w-2xl text-lg leading-relaxed text-white/85">{box.tagline}</p>
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="text-4xl font-extrabold text-embossed-gold" style={{ color: '#FACC15' }}>
-                ${box.price}
-              </span>
+          <div className="relative z-10 flex flex-col gap-6 p-8 md:p-14 text-white">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <a
+                href={BACK_HREF}
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/30 backdrop-blur-md px-4 py-2 text-xs uppercase tracking-[0.2em] font-semibold text-amber-200 transition-all hover:bg-black/50 hover:text-white"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" />
+                Back to all birthday kits
+              </a>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-black/35 backdrop-blur-md px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
+                  {box.mood}
+                </span>
+                <span className="rounded-full bg-black/35 backdrop-blur-md px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white/90 border border-white/20">
+                  {box.scale === 'small' ? 'Just Us Two' : 'Whole Crew'}
+                </span>
+                <span className="rounded-full bg-black/35 backdrop-blur-md px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white/90 border border-white/20">
+                  {box.detail === 'decor' ? 'Cake & Decor' : 'Experience'}
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-amber-200/90 font-semibold">Birthday Experience Kit</p>
+              <h1 className="mt-2 font-['Anton'] text-5xl uppercase tracking-tight md:text-7xl">{box.name}</h1>
+              <p className="mt-3 max-w-2xl text-lg leading-relaxed text-white/85">{box.tagline}</p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-6 pt-2">
+              <div>
+                <span className="block text-[10px] uppercase tracking-widest font-bold text-amber-200/80">
+                  Starting at
+                </span>
+                <span className="text-4xl md:text-5xl font-extrabold tracking-tight text-embossed-gold" style={{ color: '#FACC15' }}>
+                  ${box.price}
+                </span>
+              </div>
               <a
                 href="mailto:hello@celebrationinabox.com"
-                className="inline-flex items-center gap-2 rounded-full bg-[#FACC15] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-[#243010] shadow-md transition-all hover:scale-105 hover:bg-[#eab308] hover:shadow-lg"
-                style={{ boxShadow: '0 4px 14px rgba(0,0,0,0.25)' }}
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold uppercase tracking-[0.2em] shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+                style={{
+                  background: '#FACC15',
+                  color: '#243010',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
+                }}
               >
-                Inquire
+                Inquire about this kit
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -65,47 +95,76 @@ export default function BirthdayDetail({ slug }) {
         </div>
       </section>
 
-      {/* Image gallery */}
-      <section className="mx-auto max-w-7xl px-6 pb-8">
-        <div className="mb-6 flex items-center gap-2 text-xs uppercase tracking-[0.3em]" style={{ color: '#2A3C24' }}>
-          <Sparkles className="h-4 w-4" />
-          Visual story
+      {/* Visual story */}
+      <section className="mx-auto max-w-7xl px-6 py-8">
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: '#2A3C24' }}>
+            <Sparkles className="h-4 w-4 text-amber-600" />
+            Curated Experience Highlights
+          </div>
+          <span className="text-xs uppercase tracking-wider text-[#2A3C24]/70 font-medium">What makes it signature</span>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
-            { icon: <Cake className="h-8 w-8" />, label: 'Cake moment', grad: 'from-[#FACC15] to-[#BACDB0]' },
-            { icon: <Music className="h-8 w-8" />, label: 'Sound & mood', grad: 'from-[#2A3C24] to-[#FACC15]' },
-            { icon: <Package className="h-8 w-8" />, label: 'Kit unpacked', grad: 'from-[#BACDB0] to-[#F3E8EE]' },
-          ].map((g) => (
+            {
+              icon: <Cake className="h-6 w-6" />,
+              label: 'Cake & Centerpiece',
+              desc: 'Artisanal styling and props tailored for the birthday cake reveal.',
+              grad: 'from-[#FACC15] to-[#BACDB0]',
+            },
+            {
+              icon: <Music className="h-6 w-6" />,
+              label: 'Atmosphere & Sound',
+              desc: 'Curated sensory styling and playlist guides to set the exact party vibe.',
+              grad: 'from-[#2A3C24] to-[#FACC15]',
+            },
+            {
+              icon: <Package className="h-6 w-6" />,
+              label: 'Unboxing & Keepsakes',
+              desc: 'Bespoke celebration pieces and keepsakes your guests take home.',
+              grad: 'from-[#BACDB0] to-[#F3E8EE]',
+            },
+          ].map((g, idx) => (
             <motion.div
               key={g.label}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative h-56 overflow-hidden rounded-[2rem] border"
-              style={{ borderColor: '#BACDB0' }}
+              transition={{ delay: idx * 0.1 }}
+              className="flex flex-col rounded-[2rem] border p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.6)' }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${g.grad}`} />
               <div
-                className="absolute inset-0 opacity-40"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(45deg, rgba(255,255,255,0.35) 0 3px, transparent 3px 20px)',
-                }}
-              />
-              <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-                {g.icon}
-                <span className="text-sm font-bold uppercase tracking-[0.2em]">{g.label}</span>
+                className="relative mb-5 h-40 overflow-hidden rounded-2xl border"
+                style={{ borderColor: '#BACDB0' }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${g.grad}`} />
+                <div
+                  className="absolute inset-0 opacity-40"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(45deg, rgba(255,255,255,0.35) 0 3px, transparent 3px 20px)',
+                  }}
+                />
+                <div className="absolute top-3.5 left-3.5 rounded-full bg-black/40 backdrop-blur-md p-2 text-amber-200 border border-amber-300/30">
+                  {g.icon}
+                </div>
               </div>
+              <h3 className="font-['Anton'] text-xl uppercase tracking-wide" style={{ color: '#243010' }}>
+                {g.label}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: '#2A3C24' }}>
+                {g.desc}
+              </p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Details */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
+      <section className="mx-auto max-w-7xl px-6 pb-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-[2rem] border p-8 backdrop-blur-xl" style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.7)' }}>
+          <div className="rounded-[2rem] border p-8 backdrop-blur-xl" style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.65)' }}>
             <h2 className="font-['Anton'] text-3xl uppercase tracking-wide" style={{ color: '#243010' }}>
               What’s inside
             </h2>
@@ -115,14 +174,14 @@ export default function BirthdayDetail({ slug }) {
             <ul className="mt-6 space-y-3">
               {box.includes.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold" style={{ color: '#243010' }}>
-                  <CheckCircle2 className="h-5 w-5 shrink-0 drop-shadow-gold-icon" style={{ color: '#FACC15' }} />
+                  <CheckCircle2 className="h-5 w-5 shrink-0 text-amber-500 drop-shadow-gold-icon" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="rounded-[2rem] border p-8 backdrop-blur-xl" style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.7)' }}>
+          <div className="rounded-[2rem] border p-8 backdrop-blur-xl" style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.65)' }}>
             <h2 className="font-['Anton'] text-3xl uppercase tracking-wide" style={{ color: '#243010' }}>
               Perfect for
             </h2>
@@ -130,30 +189,57 @@ export default function BirthdayDetail({ slug }) {
               {[box.mood, box.scale, box.detail].map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em]"
-                  style={{ background: 'rgba(202,138,4,0.15)', color: '#243010' }}
+                  className="rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] border border-amber-400/40 bg-amber-400/15 text-[#243010]"
                 >
                   {tag}
                 </span>
               ))}
             </div>
             <div className="mt-8">
-              <p className="text-xs uppercase tracking-[0.25em]" style={{ color: '#2A3C24' }}>
-                Delivery
+              <p className="text-xs uppercase tracking-[0.25em] font-semibold" style={{ color: '#2A3C24' }}>
+                Delivery & Coordination
               </p>
-              <p className="mt-2 text-sm" style={{ color: '#243010' }}>
-                Curated, packed, and delivered within the GTA & Hamilton area. Email us to confirm lead time.
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: '#243010' }}>
+                Curated, packed, and delivered within the GTA & Hamilton area. Email us with your desired date to confirm lead time.
               </p>
             </div>
             <a
               href="mailto:hello@celebrationinabox.com"
               className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] shadow-md transition-all hover:scale-105 hover:shadow-lg"
-              style={{ background: '#FACC15', color: '#243010', boxShadow: '0 2px 10px rgba(36,48,16,0.22)' }}
+              style={{ background: '#FACC15', color: '#243010', boxShadow: '0 2px 10px rgba(202,138,4,0.25)' }}
             >
               Inquire for Delivery
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Footer navigation banner */}
+      <section className="mx-auto max-w-7xl px-6 pb-20">
+        <div
+          className="rounded-[2rem] border p-8 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6"
+          style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.6)' }}
+        >
+          <div>
+            <span className="text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: '#2A3C24' }}>
+              Explore More Options
+            </span>
+            <h3 className="font-['Anton'] text-2xl uppercase tracking-wide mt-1" style={{ color: '#243010' }}>
+              Want to compare with other kits?
+            </h3>
+            <p className="text-sm mt-1" style={{ color: '#2A3C24' }}>
+              Explore our full collection of curated birthday experiences and find the perfect match.
+            </p>
+          </div>
+          <a
+            href={BACK_HREF}
+            className="shrink-0 inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#243010] shadow-sm transition-all hover:bg-[#243010] hover:text-white"
+            style={{ borderColor: '#BACDB0' }}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            View all 6 birthday kits
+          </a>
         </div>
       </section>
     </div>

@@ -99,25 +99,39 @@ export default function BirthdayLanding() {
               Bold, ready-to-run birthday experiences. Filter by vibe, crowd size, and the moment that matters most.
             </p>
           </div>
-          <div
-            className="relative hidden h-80 overflow-hidden rounded-[2rem] border lg:block"
+          <a
+            href={boxPath('neon-bash')}
+            className="group relative hidden h-80 overflow-hidden rounded-[2rem] border transition-all hover:shadow-2xl lg:block"
             style={{
               borderColor: PALETTE.sage,
               background: 'linear-gradient(135deg, #FACC15 0%, #2A3C24 70%)',
             }}
           >
             <div
-              className="absolute inset-0 opacity-30"
+              className="absolute inset-0 opacity-30 transition-opacity duration-300 group-hover:opacity-40"
               style={{
                 backgroundImage:
                   'repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35) 0 2px, transparent 2px 16px)',
               }}
             />
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <p className="text-xs uppercase tracking-[0.3em] opacity-80">Signature Collection</p>
-              <p className="mt-2 text-3xl font-black uppercase">The Grand Bash</p>
+            <div className="absolute top-6 left-6">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/35 backdrop-blur-md px-3.5 py-1.5 text-xs uppercase tracking-[0.2em] text-amber-200 border border-amber-300/30">
+                <Sparkles className="h-3.5 w-3.5" />
+                Featured Experience
+              </span>
             </div>
-          </div>
+            <div className="absolute bottom-6 left-6 right-6 text-white flex items-end justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-amber-200/90 font-semibold">Signature Collection</p>
+                <p className="mt-1 font-['Anton'] text-3xl uppercase tracking-wide">Neon Bash Kit</p>
+                <p className="text-sm text-white/80 mt-0.5">Starting at $199 • All-inclusive</p>
+              </div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white text-[#243010] px-4 py-2 text-xs font-bold uppercase tracking-wider shadow-lg transition-transform group-hover:translate-x-1">
+                Explore Kit
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </div>
+          </a>
         </div>
       </header>
 
@@ -233,57 +247,91 @@ export default function BirthdayLanding() {
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.06 }}
-                    className="group relative flex flex-col overflow-hidden rounded-[2rem] border p-6 backdrop-blur-xl transition-all hover:-translate-y-1"
+                    className="group relative flex flex-col overflow-hidden rounded-[2rem] border p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                     style={{ borderColor: PALETTE.sage, background: 'rgba(255,255,255,0.6)' }}
                   >
-                    <div
-                      className="mb-6 h-56 overflow-hidden rounded-2xl border"
+                    {/* Visual preview header */}
+                    <a
+                      href={boxPath(box.id)}
+                      className="group/img relative mb-5 block h-52 overflow-hidden rounded-2xl border transition-transform duration-300 group-hover:scale-[1.01]"
                       style={{
                         borderColor: PALETTE.sage,
                         background: `linear-gradient(135deg, ${PALETTE.gold} 0%, ${PALETTE.forest} 100%)`,
                       }}
                     >
                       <div
-                        className="h-full w-full opacity-40"
+                        className="h-full w-full opacity-40 transition-opacity duration-300 group-hover/img:opacity-60"
                         style={{
                           backgroundImage:
                             'repeating-radial-gradient(circle at 30% 40%, rgba(255,255,255,0.5) 0 2px, transparent 2px 18px)',
                         }}
                       />
-                    </div>
-                    <h3
-                      className="font-['Anton'] text-2xl uppercase tracking-wide"
-                      style={{ color: PALETTE.deep }}
-                    >
-                      {box.name}
-                    </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed" style={{ color: PALETTE.forest }}>
-                      {box.tagline}
-                    </p>
-                    <a
-                      href={boxPath(box.id)}
-                      className="mt-3 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-[0.2em] link-embossed-gold transition-all hover:translate-x-0.5 hover:opacity-90"
-                      style={{ color: PALETTE.gold }}
-                    >
-                      View details
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      {/* Filter/Attribute badges */}
+                      <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-1.5">
+                        <span className="rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
+                          {box.mood}
+                        </span>
+                        <span className="rounded-full bg-black/40 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/90 border border-white/20">
+                          {box.scale === 'small' ? 'Just Us Two' : 'Whole Crew'}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#243010] shadow-sm flex items-center gap-1 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                        Explore <ArrowRight className="h-3 w-3" />
+                      </div>
                     </a>
-                    <div className="mt-6 flex items-center justify-between">
-                      <span className="text-3xl font-extrabold tracking-tight text-embossed-gold" style={{ color: PALETTE.gold }}>
-                        ${box.price}
-                      </span>
-                      <a
-                        href="mailto:hello@celebrationinabox.com"
-                        className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-md transition-all hover:scale-105 hover:shadow-lg"
-                        style={{
-                          background: PALETTE.gold,
-                          color: PALETTE.deep,
-                          boxShadow: '0 2px 8px rgba(36,48,16,0.22)',
-                        }}
+
+                    {/* Content */}
+                    <div className="flex-1 flex flex-col">
+                      <h3
+                        className="font-['Anton'] text-2xl uppercase tracking-wide transition-colors group-hover:text-amber-900"
+                        style={{ color: PALETTE.deep }}
                       >
-                        Inquire
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </a>
+                        <a href={boxPath(box.id)} className="hover:underline decoration-amber-400 decoration-2 underline-offset-4">
+                          {box.name}
+                        </a>
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed" style={{ color: PALETTE.forest }}>
+                        {box.tagline}
+                      </p>
+                    </div>
+
+                    {/* Integrated Card Footer */}
+                    <div
+                      className="mt-6 pt-4 border-t flex items-center justify-between gap-3"
+                      style={{ borderColor: 'rgba(186, 205, 176, 0.6)' }}
+                    >
+                      <div>
+                        <span className="block text-[10px] uppercase tracking-widest font-bold text-[#2A3C24]/70">
+                          Starting at
+                        </span>
+                        <span
+                          className="text-3xl font-extrabold tracking-tight text-embossed-gold"
+                          style={{ color: PALETTE.gold }}
+                        >
+                          ${box.price}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href={boxPath(box.id)}
+                          className="inline-flex items-center gap-1.5 rounded-full border bg-white/80 px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-[#243010] shadow-sm transition-all hover:bg-[#243010] hover:text-white"
+                          style={{ borderColor: PALETTE.sage }}
+                        >
+                          View details
+                          <ArrowRight className="h-3 w-3" />
+                        </a>
+                        <a
+                          href="mailto:hello@celebrationinabox.com"
+                          className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider shadow-sm transition-all hover:scale-105 hover:shadow-md"
+                          style={{
+                            background: PALETTE.gold,
+                            color: PALETTE.deep,
+                            boxShadow: '0 2px 8px rgba(202,138,4,0.25)',
+                          }}
+                        >
+                          Inquire
+                        </a>
+                      </div>
                     </div>
                   </motion.article>
                 ))}
