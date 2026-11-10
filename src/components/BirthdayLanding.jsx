@@ -245,13 +245,19 @@ export default function BirthdayLanding() {
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.06 }}
-                    className="group relative flex flex-col overflow-hidden rounded-[2rem] border p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    className="group relative flex flex-col overflow-hidden rounded-[2rem] border p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer"
                     style={{ borderColor: PALETTE.sage, background: 'rgba(255,255,255,0.6)' }}
                   >
-                    {/* Visual preview header */}
+                    {/* Full card stretch link */}
                     <a
                       href={boxPath(box.id)}
-                      className="group/img relative mb-5 block h-52 overflow-hidden rounded-2xl border transition-transform duration-300 group-hover:scale-[1.01]"
+                      className="absolute inset-0 z-10"
+                      aria-label={`View details for ${box.name}`}
+                    />
+
+                    {/* Visual preview header */}
+                    <div
+                      className="group/img relative mb-5 block h-56 overflow-hidden rounded-2xl border transition-transform duration-300 group-hover:scale-[1.01]"
                       style={{
                         borderColor: PALETTE.sage,
                         background: `linear-gradient(135deg, ${PALETTE.gold} 0%, ${PALETTE.forest} 100%)`,
@@ -261,13 +267,13 @@ export default function BirthdayLanding() {
                         <img
                           src={box.image}
                           alt={box.name}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25" />
                       {/* Filter/Attribute badges */}
-                      <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-1.5">
+                      <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-1.5 z-10">
                         <span className="rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
                           {box.mood}
                         </span>
@@ -275,10 +281,10 @@ export default function BirthdayLanding() {
                           {box.scale === 'small' ? 'Just Us Two' : 'Whole Crew'}
                         </span>
                       </div>
-                      <div className="absolute bottom-3 right-3 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#243010] shadow-md flex items-center gap-1 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                        Explore <ArrowRight className="h-3 w-3" />
+                      <div className="absolute bottom-3 right-3 rounded-full bg-white/95 backdrop-blur-md px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#243010] shadow-md flex items-center gap-1.5 transition-transform duration-300 group-hover:scale-105">
+                        Details <ArrowRight className="h-3 w-3" />
                       </div>
-                    </a>
+                    </div>
 
                     {/* Content */}
                     <div className="flex-1 flex flex-col">
@@ -286,9 +292,7 @@ export default function BirthdayLanding() {
                         className="font-['Anton'] text-2xl uppercase tracking-wide transition-colors group-hover:text-amber-900"
                         style={{ color: PALETTE.deep }}
                       >
-                        <a href={boxPath(box.id)} className="hover:underline decoration-amber-400 decoration-2 underline-offset-4">
-                          {box.name}
-                        </a>
+                        {box.name}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed" style={{ color: PALETTE.forest }}>
                         {box.tagline}
@@ -297,7 +301,7 @@ export default function BirthdayLanding() {
 
                     {/* Integrated Card Footer */}
                     <div
-                      className="mt-6 pt-4 border-t flex items-center justify-between gap-3"
+                      className="mt-6 pt-4 border-t flex items-center justify-between gap-4"
                       style={{ borderColor: 'rgba(186, 205, 176, 0.6)' }}
                     >
                       <div>
@@ -311,27 +315,18 @@ export default function BirthdayLanding() {
                           ${box.price}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <a
-                          href={boxPath(box.id)}
-                          className="inline-flex items-center gap-1.5 rounded-full border bg-white/80 px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-[#243010] shadow-sm transition-all hover:bg-[#243010] hover:text-white"
-                          style={{ borderColor: PALETTE.sage }}
-                        >
-                          View details
-                          <ArrowRight className="h-3 w-3" />
-                        </a>
-                        <a
-                          href="mailto:hello@celebrationinabox.com"
-                          className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider shadow-sm transition-all hover:scale-105 hover:shadow-md"
-                          style={{
-                            background: PALETTE.gold,
-                            color: PALETTE.deep,
-                            boxShadow: '0 2px 8px rgba(202,138,4,0.25)',
-                          }}
-                        >
-                          Inquire
-                        </a>
-                      </div>
+                      <a
+                        href="mailto:hello@celebrationinabox.com"
+                        className="relative z-20 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] shadow-md transition-all hover:scale-105 hover:shadow-lg"
+                        style={{
+                          background: PALETTE.gold,
+                          color: PALETTE.deep,
+                          boxShadow: '0 2px 8px rgba(202,138,4,0.25)',
+                        }}
+                      >
+                        Inquire
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
                     </div>
                   </motion.article>
                 ))}
