@@ -17,23 +17,36 @@ export const BIRTHDAY_BOXES = [
     includes: ['Neon signage set', 'UV lighting guide', 'Glow accessories (12)', 'Sound styling playbook'],
     accent: 'from-fuchsia-400 to-violet-600',
     image: getImagePath('neon-bash.jpg'),
-    gallery: [
-      {
-        label: 'Unboxed Kit & Neon Hardware',
-        desc: 'Custom LED neon signs, UV lighting guide, and sound styling deck.',
-        image: getImagePath('neon-bash.jpg'),
-      },
-      {
-        label: 'Speakeasy Barware & Night-of Styling',
-        desc: 'Atmospheric cocktail lounge mood, metallic accents, and party guides.',
-        image: getImagePath('vip-night.jpg'),
-      },
-      {
-        label: 'Late-Night Party Glow',
-        desc: 'Intimate glowing candle cues and curated late-night playlist sequencing.',
-        image: getImagePath('twilight-dinner.jpg'),
-      },
-    ],
+    dreamExperience: {
+      headline: 'The Glow Lounge Experience',
+      tagline: 'How your space transforms into an electric late-night party.',
+      chapters: [
+        {
+          phase: '01 • The Entrance',
+          time: '8:00 PM',
+          title: 'The Glow-Floor Reveal',
+          story: 'Dim the room lights and let the neon sign cast its vibrant magenta and violet glow. Guests step inside to curated opening beats and are handed glowing accessories, setting an immediate boutique party tone.',
+          image: getImagePath('neon-bash.jpg'),
+          tag: 'Atmosphere & First Impression',
+        },
+        {
+          phase: '02 • The Peak Energy',
+          time: '9:30 PM',
+          title: 'Cocktails & Dance Floor Flow',
+          story: 'Energy peaks as craft drinks flow under UV light cues. The sound guide sequence keeps the rhythm flowing seamlessly, turning your living room into an effortless private lounge.',
+          image: getImagePath('vip-night.jpg'),
+          tag: 'Music & Social Pulse',
+        },
+        {
+          phase: '03 • The Climax',
+          time: '11:00 PM',
+          title: 'The Midnight Cake Drop',
+          story: 'All eyes turn to the birthday VIP as neon accents illuminate the cake cutting. Confetti catches the violet beams, glasses clink in celebration, and unforgettable photos are captured.',
+          image: getImagePath('hero-signature.jpg'),
+          tag: 'The Signature Climax',
+        },
+      ],
+    },
   },
   {
     id: 'cake-garden',
@@ -48,23 +61,36 @@ export const BIRTHDAY_BOXES = [
     includes: ['Floral centerpiece kit', 'Cake stand + topper', 'Step-by-step styling guide', 'Memory cards'],
     accent: 'from-amber-300 to-rose-400',
     image: getImagePath('cake-garden.jpg'),
-    gallery: [
-      {
-        label: 'Artisanal Cake Display & Florals',
-        desc: 'Pedestal ceramic cake stand, fresh botanical arrangement, and cake topper.',
-        image: getImagePath('cake-garden.jpg'),
-      },
-      {
-        label: 'Sunlit Botanical Table Setting',
-        desc: 'Botanical runners, outdoor lanterns, and seed packet celebration favors.',
-        image: getImagePath('garden-club.jpg'),
-      },
-      {
-        label: 'Candlelit Keepsake Moment',
-        desc: 'Warm beeswax taper candles, textured linen runner, and custom memory cards.',
-        image: getImagePath('twilight-dinner.jpg'),
-      },
-    ],
+    dreamExperience: {
+      headline: 'The Botanical Salon',
+      tagline: 'An enchanting afternoon of artisanal florals and showstopper dessert styling.',
+      chapters: [
+        {
+          phase: '01 • The Arrival',
+          time: '3:00 PM',
+          title: 'Sunlit Botanical Welcome',
+          story: 'Soft afternoon sunlight streams across a marble table styled with lush garden roses, eucalyptus runners, and delicate ceramic accents. The subtle scent of fresh florals welcomes guests into an oasis of understated elegance.',
+          image: getImagePath('cake-garden.jpg'),
+          tag: 'Botanical Ambiance',
+        },
+        {
+          phase: '02 • The Centerpiece',
+          time: '4:15 PM',
+          title: 'The Artisanal Cake Reveal',
+          story: 'The birthday cake is unveiled upon the ceramic pedestal stand adorned with custom botanical toppers. Every angle is picture-perfect as candles are lit and guests gather close to sing and celebrate.',
+          image: getImagePath('cake-garden.jpg'),
+          tag: 'The Showstopper Moment',
+        },
+        {
+          phase: '03 • The Connection',
+          time: '5:30 PM',
+          title: 'Keepsake Wishes & Rosé',
+          story: 'Chilled rosé flows while guests fill out personalized memory cards with heartfelt wishes, slipping them into the keepsake box for the birthday guest to cherish for years.',
+          image: getImagePath('twilight-dinner.jpg'),
+          tag: 'Lasting Memories',
+        },
+      ],
+    },
   },
   {
     id: 'family-festival',
@@ -79,23 +105,36 @@ export const BIRTHDAY_BOXES = [
     includes: ['Garland & banner kit', 'Game station set', 'Craft corner supplies', 'Photo backdrop'],
     accent: 'from-lime-300 to-green-500',
     image: getImagePath('family-festival.jpg'),
-    gallery: [
-      {
-        label: 'Games & Garlands Unpacked',
-        desc: 'Festive paper garlands, wooden party games, and interactive party props.',
-        image: getImagePath('family-festival.jpg'),
-      },
-      {
-        label: 'Patio & Backyard Atmosphere',
-        desc: 'Lush greenery, hanging lanterns, and weather-ready picnic styling.',
-        image: getImagePath('garden-club.jpg'),
-      },
-      {
-        label: 'Sweet Treats & Cake Time',
-        desc: 'Pedestal cake stand, celebration flags, and colorful celebration journals.',
-        image: getImagePath('cake-garden.jpg'),
-      },
-    ],
+    dreamExperience: {
+      headline: 'The Carnival of Joy',
+      tagline: 'A vibrant, laughter-packed celebration bringing every generation together.',
+      chapters: [
+        {
+          phase: '01 • The Arrival',
+          time: '1:00 PM',
+          title: 'A Carnival of Color & Joy',
+          story: 'Honeycomb garlands and vibrant party banners crisscross the space. Crafted celebration flags, party hats, and festive journals bring an immediate smile to every guest the moment they step through the door.',
+          image: getImagePath('family-festival.jpg'),
+          tag: 'Festive World Building',
+        },
+        {
+          phase: '02 • Play & Connection',
+          time: '2:30 PM',
+          title: 'Laughter, Lawn Games & Crafts',
+          story: 'The room fills with playful competition and shared smiles. Kids and grandparents team up at the wooden game stations, while the craft corner lets everyone design personalized celebration souvenirs.',
+          image: getImagePath('family-festival.jpg'),
+          tag: 'All-Ages Engagement',
+        },
+        {
+          phase: '03 • The Grand Toast',
+          time: '4:00 PM',
+          title: 'The All-Ages Cake Countdown',
+          story: 'Three generations gather tightly around the dessert table. Bright sparklers ignite, birthday songs echo through the room, and every guest leaves with a handcrafted keepsake journal.',
+          image: getImagePath('cake-garden.jpg'),
+          tag: 'Multigenerational Warmth',
+        },
+      ],
+    },
   },
   {
     id: 'twilight-dinner',
@@ -110,23 +149,36 @@ export const BIRTHDAY_BOXES = [
     includes: ['Candle & holder set', 'Menu cards', 'Table runner', 'Atmosphere guide'],
     accent: 'from-rose-300 to-pink-500',
     image: getImagePath('twilight-dinner.jpg'),
-    gallery: [
-      {
-        label: 'Candlelit Centerpiece & Menus',
-        desc: 'Solid brass holders, organic beeswax tapers, and fine textured linen runner.',
-        image: getImagePath('twilight-dinner.jpg'),
-      },
-      {
-        label: 'Lounge Decanter & Nightcap',
-        desc: 'Crystal decanter styling, brass accents, and curated dinner vinyl playlist.',
-        image: getImagePath('vip-night.jpg'),
-      },
-      {
-        label: 'Botanical Cake Reveal',
-        desc: 'Ceramic cake plates, floral centerpiece accents, and gold-foiled menu stationery.',
-        image: getImagePath('cake-garden.jpg'),
-      },
-    ],
+    dreamExperience: {
+      headline: 'The Private Supper Club',
+      tagline: 'A candle-lit, slow-evening feast designed for deep connection.',
+      chapters: [
+        {
+          phase: '01 • Golden Hour',
+          time: '7:00 PM',
+          title: 'Candlelit Table Styling',
+          story: 'As twilight falls, organic beeswax tapers flicker in solid brass holders along a textured linen runner. Gold-lettered personalized menus atop ceramic plates set the tone for an unhurried, restaurant-grade evening.',
+          image: getImagePath('twilight-dinner.jpg'),
+          tag: 'Intimate Table Setting',
+        },
+        {
+          phase: '02 • The Feast',
+          time: '8:30 PM',
+          title: 'Wine Pairings & Conversation',
+          story: 'Acoustic vinyl hums softly in the background. Close friends linger between courses, wine glasses glint in the candlelight, and deep, laughter-filled conversation flows without rush or distraction.',
+          image: getImagePath('twilight-dinner.jpg'),
+          tag: 'Dining & Atmosphere',
+        },
+        {
+          phase: '03 • The Nightcap',
+          time: '10:30 PM',
+          title: 'Decadent Dessert & Vinyl Toasts',
+          story: 'The birthday cake is cut under low golden light. Liqueurs and coffee are poured as guests share intimate tributes, making the birthday honoree feel cherished in the quiet warmth of close company.',
+          image: getImagePath('vip-night.jpg'),
+          tag: 'Late-Night Intimacy',
+        },
+      ],
+    },
   },
   {
     id: 'garden-club',
@@ -141,23 +193,36 @@ export const BIRTHDAY_BOXES = [
     includes: ['Botanical garland kit', 'Outdoor signage', 'Picnic setup guide', 'Floral wrap'],
     accent: 'from-emerald-300 to-teal-500',
     image: getImagePath('garden-club.jpg'),
-    gallery: [
-      {
-        label: 'Botanical Garlands & Lanterns',
-        desc: 'Fresh-look greenery runners, brass glass lanterns, and outdoor signs.',
-        image: getImagePath('garden-club.jpg'),
-      },
-      {
-        label: 'Artisanal Cake & Floral Accents',
-        desc: 'Pedestal cake stand, garden rose centerpieces, and seed paper favors.',
-        image: getImagePath('cake-garden.jpg'),
-      },
-      {
-        label: 'Celebration Games & Keepsakes',
-        desc: 'Lawn games, celebration journal cards, and festive photo keepsakes.',
-        image: getImagePath('family-festival.jpg'),
-      },
-    ],
+    dreamExperience: {
+      headline: 'The Starlit Garden Soirée',
+      tagline: 'An open-air celebration surrounded by lush greenery, lanterns, and breeze.',
+      chapters: [
+        {
+          phase: '01 • The Garden Oasis',
+          time: '4:30 PM',
+          title: 'Botanical Runners & Sun Dappled Styling',
+          story: 'Your patio is transformed with fresh botanical garlands, weather-ready outdoor signage, and rustic wooden styling. Afternoon sunbeams filter through leaves, casting natural warmth across the celebration table.',
+          image: getImagePath('garden-club.jpg'),
+          tag: 'Open-Air Setting',
+        },
+        {
+          phase: '02 • Golden Hour',
+          time: '6:30 PM',
+          title: 'Lantern Glow & Spritz Hour',
+          story: 'As dusk settles, glass lanterns are lit, casting amber reflections against greenery. Guests sip crisp spritzes, graze from artisanal platters, and enjoy the cooling evening breeze.',
+          image: getImagePath('garden-club.jpg'),
+          tag: 'Dusk Ambiance',
+        },
+        {
+          phase: '03 • Starlit Finale',
+          time: '8:30 PM',
+          title: 'Under-the-Stars Cake & Seed Favors',
+          story: 'The birthday dessert is unveiled beneath twilight string lights and stars. Guests take home living botanical seed packets and handwritten notes as a blooming keepsake of the night.',
+          image: getImagePath('cake-garden.jpg'),
+          tag: 'Living Keepsakes',
+        },
+      ],
+    },
   },
   {
     id: 'vip-night',
@@ -172,26 +237,38 @@ export const BIRTHDAY_BOXES = [
     includes: ['VIP decor set', 'Run-of-show playbook', 'Keepsake box', 'Ambience kit'],
     accent: 'from-indigo-300 to-violet-500',
     image: getImagePath('vip-night.jpg'),
-    gallery: [
-      {
-        label: 'Speakeasy Bar & Glassware',
-        desc: 'Crystal barware, brushed brass party accessories, and matte black keepsake box.',
-        image: getImagePath('vip-night.jpg'),
-      },
-      {
-        label: 'Neon Ambient Party Cues',
-        desc: 'Curated atmospheric lighting cues, sound sequence playbook, and party glow.',
-        image: getImagePath('neon-bash.jpg'),
-      },
-      {
-        label: 'Candlelit VIP Table Setting',
-        desc: 'Mood lighting, wax-sealed VIP invites, and bespoke run-of-show scrolls.',
-        image: getImagePath('twilight-dinner.jpg'),
-      },
-    ],
+    dreamExperience: {
+      headline: 'The Clandestine Speakeasy',
+      tagline: 'A masterfully curated evening of bespoke barware, velvet mood, and VIP pacing.',
+      chapters: [
+        {
+          phase: '01 • The Private Entry',
+          time: '8:30 PM',
+          title: 'The Speakeasy Reception',
+          story: 'Wax-sealed run-of-show invitations and sultry ambient lighting welcome your inner circle. A dedicated bar setup with crystal decanters and brushed brass tools creates an immediate aura of luxury exclusivity.',
+          image: getImagePath('vip-night.jpg'),
+          tag: 'Bespoke Welcome',
+        },
+        {
+          phase: '02 • The Curated Run-of-Show',
+          time: '10:00 PM',
+          title: 'Crafted Toast & Sound Sequence',
+          story: 'The host leads a signature cocktail toast orchestrated straight from the concierge playbook. Music shifts into sleek jazz and deep lounge grooves as crystal glasses clink and conversation hums.',
+          image: getImagePath('vip-night.jpg'),
+          tag: 'Orchestrated Glamour',
+        },
+        {
+          phase: '03 • The Velvet Hour',
+          time: '11:45 PM',
+          title: 'The After-Hours Grand Finale',
+          story: 'The evening culminates with private tributes and handcrafted keepsake presentations. Guests leave feeling they have experienced a clandestine VIP celebration custom-crafted for the birthday honoree.',
+          image: getImagePath('neon-bash.jpg'),
+          tag: 'Unforgettable Exclusivity',
+        },
+      ],
+    },
   },
 ];
 
 export const getBox = (id) => BIRTHDAY_BOXES.find((b) => b.id === id);
 export { getImagePath };
-

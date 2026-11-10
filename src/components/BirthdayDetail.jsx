@@ -120,51 +120,93 @@ export default function BirthdayDetail({ slug }) {
         </div>
       </section>
 
-      {/* Experience & Aspect Gallery */}
-      <section className="mx-auto max-w-7xl px-6 py-8">
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] font-semibold" style={{ color: '#2A3C24' }}>
-            <Sparkles className="h-4 w-4 text-amber-600" />
-            Kit Moments & Experience Gallery
-          </div>
-          <span className="text-xs uppercase tracking-wider text-[#2A3C24]/70 font-medium">3 Curated Perspectives</span>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {(box.gallery || []).map((item, idx) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group flex flex-col rounded-[2rem] border p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
-              style={{ borderColor: '#BACDB0', background: 'rgba(255,255,255,0.65)' }}
+      {/* The Dream Celebration — Narrative Experience Showcase */}
+      {box.dreamExperience && (
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          {/* Section Header */}
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <span
+              className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs uppercase tracking-[0.3em] font-semibold"
+              style={{
+                borderColor: '#BACDB0',
+                background: 'rgba(255, 255, 255, 0.7)',
+                color: '#2A3C24',
+              }}
             >
-              <div
-                className="relative mb-5 h-56 overflow-hidden rounded-2xl border"
-                style={{ borderColor: '#BACDB0' }}
+              <Sparkles className="h-3.5 w-3.5 text-amber-600" />
+              The Dream Celebration
+            </span>
+            <h2
+              className="mt-4 font-['Anton'] text-4xl uppercase tracking-tight md:text-5xl"
+              style={{ color: '#243010' }}
+            >
+              {box.dreamExperience.headline}
+            </h2>
+            <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: '#2A3C24' }}>
+              {box.dreamExperience.tagline}
+            </p>
+          </div>
+
+          {/* 3-Chapter Narrative Cards */}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {box.dreamExperience.chapters.map((chapter, idx) => (
+              <motion.div
+                key={chapter.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className="group relative flex flex-col overflow-hidden rounded-[2.5rem] border backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                style={{
+                  borderColor: '#BACDB0',
+                  background: 'rgba(255, 255, 255, 0.75)',
+                }}
               >
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-                <div className="absolute top-3.5 left-3.5 rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
-                  Aspect 0{idx + 1}
+                {/* Visual Scene Header */}
+                <div className="relative h-64 overflow-hidden border-b" style={{ borderColor: '#BACDB0' }}>
+                  <img
+                    src={chapter.image}
+                    alt={chapter.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+
+                  {/* Phase & Time Pill */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                    <span className="rounded-full bg-black/50 backdrop-blur-md px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-200 border border-amber-300/30">
+                      {chapter.phase}
+                    </span>
+                    <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-[#243010] shadow-sm">
+                      {chapter.time}
+                    </span>
+                  </div>
+
+                  {/* Scene Tag on Image Bottom */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-white/90 drop-shadow">
+                      {chapter.tag}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <h3 className="font-['Anton'] text-xl uppercase tracking-wide" style={{ color: '#243010' }}>
-                {item.label}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed" style={{ color: '#2A3C24' }}>
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
+                {/* Narrative Body */}
+                <div className="flex-1 flex flex-col p-7">
+                  <h3
+                    className="font-['Anton'] text-2xl uppercase tracking-wide transition-colors group-hover:text-amber-900"
+                    style={{ color: '#243010' }}
+                  >
+                    {chapter.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: '#2A3C24' }}>
+                    {chapter.story}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Details */}
       <section className="mx-auto max-w-7xl px-6 pb-12">
