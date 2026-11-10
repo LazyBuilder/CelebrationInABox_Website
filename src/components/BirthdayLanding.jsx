@@ -91,7 +91,9 @@ export default function BirthdayLanding() {
             >
               Birthday
               <br />
-              <span style={{ color: PALETTE.gold }}>Kits</span>
+              <span className="text-embossed-gold-lg" style={{ color: PALETTE.gold }}>
+                Kits
+              </span>
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-relaxed" style={{ color: PALETTE.forest }}>
               Bold, ready-to-run birthday experiences. Filter by vibe, crowd size, and the moment that matters most.
@@ -260,20 +262,24 @@ export default function BirthdayLanding() {
                     </p>
                     <a
                       href={boxPath(box.id)}
-                      className="mt-3 inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.2em] hover:opacity-70"
+                      className="mt-3 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-[0.2em] link-embossed-gold transition-all hover:translate-x-0.5 hover:opacity-90"
                       style={{ color: PALETTE.gold }}
                     >
                       View details
                       <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="text-3xl font-extrabold" style={{ color: PALETTE.gold }}>
+                      <span className="text-3xl font-extrabold tracking-tight text-embossed-gold" style={{ color: PALETTE.gold }}>
                         ${box.price}
                       </span>
                       <a
                         href="mailto:hello@celebrationinabox.com"
-                        className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
-                        style={{ background: PALETTE.gold, color: PALETTE.deep }}
+                        className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-md transition-all hover:scale-105 hover:shadow-lg"
+                        style={{
+                          background: PALETTE.gold,
+                          color: PALETTE.deep,
+                          boxShadow: '0 2px 8px rgba(36,48,16,0.22)',
+                        }}
                       >
                         Inquire
                         <ArrowRight className="h-3.5 w-3.5" />

@@ -49,10 +49,13 @@ export default function BirthdayDetail({ slug }) {
             <h1 className="font-['Anton'] text-5xl uppercase tracking-tight md:text-7xl">{box.name}</h1>
             <p className="max-w-2xl text-lg leading-relaxed text-white/85">{box.tagline}</p>
             <div className="flex flex-wrap items-center gap-4">
-              <span className="text-4xl font-extrabold">${box.price}</span>
+              <span className="text-4xl font-extrabold text-embossed-gold" style={{ color: '#FACC15' }}>
+                ${box.price}
+              </span>
               <a
                 href="mailto:hello@celebrationinabox.com"
-                className="inline-flex items-center gap-2 rounded-full bg-[#FACC15] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-[#243010] transition-colors hover:bg-[#eab308]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#FACC15] px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] text-[#243010] shadow-md transition-all hover:scale-105 hover:bg-[#eab308] hover:shadow-lg"
+                style={{ boxShadow: '0 4px 14px rgba(0,0,0,0.25)' }}
               >
                 Inquire
                 <ArrowRight className="h-4 w-4" />
@@ -90,7 +93,7 @@ export default function BirthdayDetail({ slug }) {
                     'repeating-linear-gradient(45deg, rgba(255,255,255,0.35) 0 3px, transparent 3px 20px)',
                 }}
               />
-              <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 text-white">
+              <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
                 {g.icon}
                 <span className="text-sm font-bold uppercase tracking-[0.2em]">{g.label}</span>
               </div>
@@ -112,7 +115,7 @@ export default function BirthdayDetail({ slug }) {
             <ul className="mt-6 space-y-3">
               {box.includes.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold" style={{ color: '#243010' }}>
-                  <CheckCircle2 className="h-5 w-5" style={{ color: '#FACC15' }} />
+                  <CheckCircle2 className="h-5 w-5 shrink-0 drop-shadow-gold-icon" style={{ color: '#FACC15' }} />
                   {item}
                 </li>
               ))}
@@ -144,8 +147,8 @@ export default function BirthdayDetail({ slug }) {
             </div>
             <a
               href="mailto:hello@celebrationinabox.com"
-              className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] transition-colors"
-              style={{ background: '#FACC15', color: '#243010' }}
+              className="mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold uppercase tracking-[0.2em] shadow-md transition-all hover:scale-105 hover:shadow-lg"
+              style={{ background: '#FACC15', color: '#243010', boxShadow: '0 2px 10px rgba(36,48,16,0.22)' }}
             >
               Inquire for Delivery
               <ArrowRight className="h-4 w-4" />
