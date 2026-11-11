@@ -1,0 +1,15 @@
+---
+import IdentityLayout from '../../layouts/IdentityLayout.astro';
+import AnniversaryDetail from '../../components/AnniversaryDetail.jsx';
+import { ANNIVERSARY_BOXES } from '../../data/anniversaryBoxes';
+
+export function getStaticPaths() {
+  return ANNIVERSARY_BOXES.map((box) => ({ params: { slug: box.id } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<IdentityLayout celebration="anniversary">
+	<AnniversaryDetail client:load slug={slug} />
+</IdentityLayout>
