@@ -1,0 +1,15 @@
+---
+import IdentityLayout from '../../layouts/IdentityLayout.astro';
+import CongratulationsDetail from '../../components/CongratulationsDetail.jsx';
+import { CONGRATULATIONS_BOXES } from '../../data/congratulationsBoxes';
+
+export function getStaticPaths() {
+  return CONGRATULATIONS_BOXES.map((box) => ({ params: { slug: box.id } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<IdentityLayout celebration="congratulations">
+	<CongratulationsDetail client:load slug={slug} />
+</IdentityLayout>

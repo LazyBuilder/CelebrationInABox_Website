@@ -24,10 +24,10 @@ const CELEBRATIONS = [
   },
   {
     id: 'congratulations',
-    label: 'Congratulations',
-    mood: 'Proud',
-    accent: 'from-sky-300 via-blue-200 to-indigo-400',
-    glow: 'rgba(14,165,233,0.35)',
+    label: 'A Celebration',
+    mood: 'Bold & Victorious',
+    accent: 'from-cyan-300 via-sky-200 to-emerald-400',
+    glow: 'rgba(0,210,255,0.4)',
   },
 ];
 
